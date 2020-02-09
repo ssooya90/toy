@@ -1,6 +1,7 @@
-package example.domain.member;
+package example.domain.member.dto;
 
 
+import example.domain.member.Member;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
