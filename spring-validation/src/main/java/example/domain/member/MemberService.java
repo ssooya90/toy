@@ -1,5 +1,6 @@
 package example.domain.member;
 
+import example.domain.exception.ValidCustomException;
 import example.domain.member.dto.MemberRequestDto;
 import example.domain.member.dto.MemberResponseDto;
 import org.springframework.stereotype.Service;
@@ -13,17 +14,24 @@ public class MemberService {
 
 	private MemberRepository memberRepository;
 
-	public MemberService(MemberRepository memberRepositry){
-		this.memberRepository = memberRepositry;
+	public MemberService(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
 	}
 
 	@Transactional
 	public Long save(MemberRequestDto memberRequestDto){
+		verifyDuplicateEmail(memberRequestDto.getEmail());
 		return memberRepository.save(memberRequestDto.toEntity()).getId();
 	}
 
+	private void verifyDuplicateEmail(String email){
+		if(memberRepository.findByEmail(email).isPresent()){
+			throw new ValidCustomException("이미 사용중인 이메일주소입니다", "email");
+		}
+	}
+
 	@Transactional(readOnly = true)
-	public List<MemberResponseDto> findAll(){
+	public List<MemberResponseDto> findAll() {
 		return memberRepository
 				.findAll()
 				.stream()

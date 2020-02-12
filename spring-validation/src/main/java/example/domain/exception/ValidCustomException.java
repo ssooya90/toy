@@ -16,6 +16,10 @@ public class ValidCustomException extends RuntimeException{
 		this.errors = errors;
 	}
 
+	public Error[] getErrors() {
+		return errors;
+	}
+
 	public static class Error {
 
 		private String defaultMessage;

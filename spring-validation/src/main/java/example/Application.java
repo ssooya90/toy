@@ -1,12 +1,12 @@
 package example;
 
+import example.domain.exception.ValidCustomException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
-import org.springframework.boot.web.servlet.error.ErrorAttributes;
+import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;
+import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.WebRequest;
 
 import java.util.Map;
 
@@ -19,15 +19,16 @@ public class Application {
 
 			@Override
 			public Map<String, Object> getErrorAttributes(
-					RequestAttributes requestAttributes, boolean includesStackTrace) {
-				Map<String, Object> errorAttributes = super.getErrorAttributes((WebRequest) requestAttributes, includesStackTrace);
-				Throwable error = getError(requestAttributes);
-
+					RequestAttributes requestAttributes,
+					boolean includeStackTrace) {
+				Map<String, Object> errorAttributes = super.getErrorAttributes( requestAttributes, includeStackTrace);
+				Throwable error = getError( requestAttributes);
 				if (error instanceof ValidCustomException) {
-					errorAttributes.put("error", ((ValidCustomException) error).getErrors());
+					errorAttributes.put("errors", ((ValidCustomException)error).getErrors());
 				}
 				return errorAttributes;
 			}
+
 		};
 	}
 
