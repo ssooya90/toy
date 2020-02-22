@@ -12,7 +12,7 @@ public class HomeController {
 	@RequestMapping("/")
 	@ResponseBody
 	public String home() {
-		return "Hello, Spring boot!@@";
+		return "Hello, Spring boot!@@@";
 	}
 
 }
