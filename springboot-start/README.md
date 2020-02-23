@@ -6,20 +6,36 @@ SPRINGBOOT - START
 
 향후 테스트 결제모듈까지 추가해보자.
 
-GRADLE
+1.GRADLE
 ------------------------------
 Groovy라는 동적 객체지향 언어로 만들어진 빌드 자동화 시스템이다.
-
 xml이 아닌 언어를 기반으로 하기때문에 변수선언, 조건문등의 로직 구현이 가능한 장점이 있다.
 
 
-SPRINGBOOT
+2.SPRINGBOOT
 ------------------------------
++ #### 2-1. Properties
+    
+  * #### 기본설정
+  SPRINGBOOT는 /resources/application.properties에서 기본 설정을 읽는다.  
+        application.properties에서 다른 properties를 include할 수 있다.   
+        보안상 application.properties는 git에 올리지 않고 기본설정은 include된 properties를 업로드한다.  
+        </br></br>
+        @파일명 application-{includeName}  
+        @코드(application.properties안에 적는다)  
+        spring.profiles.include={includeName}
+-----------------------------------------------
+      
+           
+     
+     
 
-
-
-
-
+    
 
 JPA
 ------------------------------
+
+
+
+
+
