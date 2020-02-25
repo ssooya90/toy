@@ -1,4 +1,4 @@
-package com.ssooya.toy.web;
+package com.ssooya.toy.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

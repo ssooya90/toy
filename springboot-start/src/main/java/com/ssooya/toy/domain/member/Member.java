@@ -11,6 +11,7 @@ package com.ssooya.toy.domain.member;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+@Table(name = "MEMBER")
 public class Member {
 
 	@Id
