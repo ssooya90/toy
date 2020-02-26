@@ -18,4 +18,8 @@ public class HeaderController {
 		return "/member/join";
 	}
 
+	@GetMapping("/member/login")
+	public String memberLogin(){
+		return "/member/login";
+	}
 }

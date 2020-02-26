@@ -3,8 +3,37 @@
 <div class="container">
 	{{> common/header}}
 	<div class="contents">
-		<h1>회원가입</h1>
+		<section class="">
+			<div class="inner">
+				<form>
+					<div class="formBox formSmall">
+
+						<div class="row">
+							<input placeholder="아이디" name="userId" id="userId" type="text">
+						</div>
+
+						<div class="row">
+							<input placeholder="비밀번호" name="password" id="password" type="password">
+						</div>
+
+						<div class="row">
+							<input placeholder="비밀번호 확인" name="passwordChk" id="passwordChk" type="password">
+						</div>
+						<div class="row">
+							<input placeholder="이름" name="userName" id="userName" >
+						</div>
+						<div class="row">
+							<input placeholder="나이" name="userAge" id="userAge" >
+						</div>
+						<div class="row">
+							<a href="javascript:join.save()" class="formBtn join">회원가입</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
 	</div>
 </div>
+<script src="/js/join.js"></script>
 </body>
 </html>
