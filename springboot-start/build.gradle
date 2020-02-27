@@ -64,5 +64,8 @@ dependencies {
     //mustache
     compile("org.springframework.boot:spring-boot-starter-mustache")
 
+    //SpringSecurity
+    compile("org.springframework.boot:spring-boot-starter-security")
+
 
 }

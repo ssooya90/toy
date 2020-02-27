@@ -27,4 +27,5 @@ public class MemberController {
 		return memberService.findById(id);
 	}
 
+
 }
