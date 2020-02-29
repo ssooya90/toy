@@ -38,4 +38,9 @@ public class MemberSaveRequestDto {
 				.userAge(userAge)
 				.build();
 	}
+
+	// 비밀번호 암호화용
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

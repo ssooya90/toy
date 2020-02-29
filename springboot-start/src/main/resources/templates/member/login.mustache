@@ -5,7 +5,8 @@
 	<div class="contents">
 		<section class="">
 			<div class="inner">
-				<form>
+				<form action="/login" method="post">
+					<input type="hidden" name="_csrf" value="{{#_csrf}}token{{/_csrf}}" />
 					<div class="formBox formSmall">
 
 						<div class="row">
@@ -13,10 +14,10 @@
 						</div>
 
 						<div class="row">
-							<input placeholder="비밀번호" name="userId" id="userId" type="password">
+							<input placeholder="비밀번호" name="password" id="password" type="password">
 						</div>
 						<div class="row">
-							<a href="#none" class="formBtn">일반 로그인</a>
+							<a href="javascript:member.login()" class="formBtn">일반 로그인</a>
 						</div>
 						<div class="row">
 							<a href="#none" class="formBtn naver">네이버 로그인</a>
@@ -33,5 +34,6 @@
 		</section>
 	</div>
 </div>
+<script src="/js/member.js"></script>
 </body>
 </html>

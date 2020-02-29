@@ -1,4 +1,4 @@
-var join = {
+var member = {
 
 	init : function () {
 		var _this = this;
@@ -8,6 +8,7 @@ var join = {
 
 	save : function () {
 
+		alert('1')
 
 		var data = {
 			userId : $('#userId').val()
@@ -30,5 +31,10 @@ var join = {
 			alert(JSON.stringify(error))
 		});
 
+	},
+
+	login : function () {
+
+		$('form').submit();
 	}
 }
