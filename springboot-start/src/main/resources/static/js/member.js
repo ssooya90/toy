@@ -8,14 +8,14 @@ var member = {
 
 	save : function () {
 
-		alert('1')
-
 		var data = {
 			userId : $('#userId').val()
 			, password : $('#password').val()
 			, userName : $('#userName').val()
 			, userAge : $('#userAge').val()
 		};
+
+		console.log(data);
 
 		$.ajax({
 			type: "POST"

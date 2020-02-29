@@ -13,7 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.sql.DataSource;
 
 @Configurable
 @EnableWebSecurity
@@ -41,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	/* Security 제외 패턴 */
 	@Override
 	public void configure(WebSecurity webSecurity) throws Exception{
-		webSecurity.ignoring().antMatchers("/resuorces/**");
+		webSecurity.ignoring().antMatchers("/templates/**");
 	}
 
 	/* 시큐어 패턴 등록 */
@@ -53,7 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 				// 페이지 권한 설정
 				.antMatchers("/admin/**").hasRole("ADMIN")	// 관리자롤을 가진 회원만 접근 가능
-				.antMatchers("/user/myinfo").hasRole("MEMBER")	// 사용 롤을 가진 회원만 접근 가능
 				.antMatchers("/**").permitAll() // 모든 경로에 대해서 권한없이 접근 가능
 
 				.and() // 로그인 설정
@@ -68,6 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logoutSuccessUrl("/user/logout/result")
 				.invalidateHttpSession(true)
 				.and()
+
 				// 403 예외처리 핸들링
 				.exceptionHandling().accessDeniedPage("/user/denied");
 
