@@ -30,7 +30,11 @@ HIBERNATE
 + ### TABLE 연동
 Entity 와 table 이름이 맵핑되어야 한다.
 
-
+SPRING SECURITY
+------------------------------
++ ### LOGIN / LOGOUT
+SECURITY를 이용하여 로그인/로그아웃 처리를 진행한다
+SecurityConfig Bean을 만들어서 기본 설정을 Overriding 한다.
 
 
 
