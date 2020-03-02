@@ -9,7 +9,7 @@ import lombok.Getter;
  */
 
 @Getter
-public class MemberResponseDto {
+public class MemberResponseDto{
 
 	private Long id;
 	private String userId;
