@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class HeaderController {
 
-
 	@GetMapping("/member/signUp")
 	public String memberJoin(){
 		return "/member/signUp";
@@ -24,6 +23,11 @@ public class HeaderController {
 	@GetMapping("/member/signIn")
 	public String memberLogin(){
 		return "/member/signIn";
+	}
+
+	@GetMapping("/loginSuccess")
+	public String loginSuccess() {
+		return "/member/loginSuccess";
 	}
 
 
