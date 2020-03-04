@@ -29,7 +29,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 
-		// String userId가 ""로 넘어옴..
+		// View에서 username으로 넘겨야 함..!
 		Member member = memberRepository.findByUserId(userId)
 				.orElseThrow(() -> new UsernameNotFoundException(userId));
 
