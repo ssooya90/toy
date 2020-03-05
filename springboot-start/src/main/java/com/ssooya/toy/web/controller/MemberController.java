@@ -1,18 +1,12 @@
 package com.ssooya.toy.web.controller;
 
-import com.ssooya.toy.domain.member.Member;
 import com.ssooya.toy.domain.member.MemberRepository;
 import com.ssooya.toy.service.member.MemberService;
 import com.ssooya.toy.web.dto.member.MemberResponseDto;
 import com.ssooya.toy.web.dto.member.MemberSaveRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by ssooya90@naver.com on 2020-02-24

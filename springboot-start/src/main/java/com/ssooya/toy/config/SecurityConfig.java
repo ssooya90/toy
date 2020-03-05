@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 @RequiredArgsConstructor
 @Configurable
@@ -27,6 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
+//	@Bean
+//	public SpringSecurityDialect springSecurityDialect(){
+//		return new SpringSecurityDialect();
+//	}
 
 	/* 인증방식 */
 	@Override
@@ -60,8 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 				.and() // 로그아웃 설정
 				.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-				.logoutSuccessUrl("/user/logout/result")
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.logoutSuccessUrl("/")
 				.invalidateHttpSession(true)
 				.and()
 

@@ -1,7 +1,8 @@
-{{> common/head}}
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/common/head" th:remove="tag"></head>
 <body>
 <div class="container">
-	{{> common/header}}
+	<header th:include="/common/header" th:remove="tag"></header>
 	<div class="contents">
 		<section class="">
 			<div class="inner">

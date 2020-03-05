@@ -1,13 +1,13 @@
-{{> common/head}}
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/common/head" th:remove="tag"></head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
 <div class="container">
-	{{> common/header}}
+	<header th:include="/common/header" th:remove="tag"></header>
 	<div class="contents">
 		<section class="">
 			<div class="inner">
 				<form action="/login" method="post">
-					<input type="hidden" name="_csrf" value="{{#_csrf}}token{{/_csrf}}" />
-					<div class="formBox formSmall">
+					<input type="hidden" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />					<div class="formBox formSmall">
 
 						<div class="row">
 							<input placeholder="아이디" name="username" id="username" type="text">
