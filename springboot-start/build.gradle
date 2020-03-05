@@ -62,7 +62,11 @@ dependencies {
     compile('org.mariadb.jdbc:mariadb-java-client')
 
     //mustache
-    compile("org.springframework.boot:spring-boot-starter-mustache")
+//    compile("org.springframework.boot:spring-boot-starter-mustache")
+
+    // thymeleaf
+    compile ('org.springframework.boot:spring-boot-starter-thymeleaf')
+
 
     //SpringSecurity
     compile("org.springframework.boot:spring-boot-starter-security")
