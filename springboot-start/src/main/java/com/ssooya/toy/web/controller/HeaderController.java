@@ -3,6 +3,7 @@ package com.ssooya.toy.web.controller;
 import com.ssooya.toy.web.dto.member.MemberSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,17 +17,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class HeaderController {
 
 	@GetMapping("/member/signUp")
-	public String memberJoin(){
+	public String memberJoin() {
 		return "/member/signUp";
 	}
 
 	@GetMapping("/member/signIn")
-	public String memberLogin(){
+	public String memberLogin() {
 		return "/member/signIn";
 	}
 
 	@GetMapping("/loginSuccess")
-	public String loginSuccess() {
+	public String loginSuccess(Model model) {
+		model.addAttribute("test","test");
 		return "/member/loginSuccess";
 	}
 

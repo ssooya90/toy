@@ -29,10 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
-//	@Bean
-//	public SpringSecurityDialect springSecurityDialect(){
-//		return new SpringSecurityDialect();
-//	}
 
 	/* 인증방식 */
 	@Override
