@@ -56,10 +56,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and() // 로그인 설정
 				.formLogin()
 				.loginPage("/login")	// 커스텀 로그인 폼
-				.defaultSuccessUrl("/loginSuccess")
 				.permitAll()
 				.failureHandler(new LoginFailureHandler())
 				.successHandler(new LoginSuccessHandler())
+//				.defaultSuccessUrl("/loginSuccess") // 성공 핸들러를 따로 사용하기위해 주석처리
+
 
 				.and() // 로그아웃 설정
 				.logout()
