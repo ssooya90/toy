@@ -28,7 +28,6 @@ public class HeaderController {
 
 	@GetMapping("/loginSuccess")
 	public String loginSuccess(Model model) {
-		model.addAttribute("test","test");
 		return "/member/loginSuccess";
 	}
 

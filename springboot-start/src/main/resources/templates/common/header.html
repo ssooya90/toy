@@ -1,10 +1,26 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <header th:fragment="header">
 	<nav class="menu">
-		<a sec:authorize="!isAuthenticated()" th:href="/member/signUp">회원가입</a>
-		<a sec:authorize="!isAuthenticated()" th:href="/member/signIn">로그인</a>
+
+		<!-- 비로그인 상태 -->
+		<a sec:authorize="!isAuthenticated()" th:href="@{/member/signUp}">회원가입</a>
+		<a sec:authorize="!isAuthenticated()" th:href="@{/member/signIn}">로그인</a>
+
+
+
+		<!-- 로그인 상태 -->
 		<a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/user/info}">내정보</a>
 		<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">어드민</a>
 		<a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
+
+
+		<!--/* thymeLeaf 주석 */-->
+		<!-- 일반적인 HTML 주석 이건 나온다 -->
+
+		<!--/*
+		해당 조건문을 통해서도 로그인 유무를 확인할 수 있다.
+		<div th:if="${#authorization.expr('isAuthenticated()')}" th:remove="tag">
+		<div th:unless="${#authorization.expr('isAuthenticated()')}" th:remove="tag">
+		*/-->
 	</nav>
 </header>
