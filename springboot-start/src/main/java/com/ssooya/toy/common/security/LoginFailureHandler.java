@@ -1,6 +1,7 @@
-package com.ssooya.toy.domain.member;
+package com.ssooya.toy.common.security;
 
 
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -14,8 +15,22 @@ import java.io.IOException;
 // 로그인 에러 처리 핸들러
 public class LoginFailureHandler implements AuthenticationFailureHandler {
 
+
+
+
 	@Override
-	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-		System.out.println("HERE");
+	public void onAuthenticationFailure(HttpServletRequest req, HttpServletResponse res, AuthenticationException exception) throws IOException, ServletException {
+
+//       로그인 정보 저장
+		String userName = req.getParameter("username");
+		String password = req.getParameter("password");
+
+
+
+
+
+
+
+
 	}
 }

@@ -1,7 +1,7 @@
 package com.ssooya.toy.config;
 
-import com.ssooya.toy.domain.member.LoginFailureHandler;
-import com.ssooya.toy.domain.member.LoginSuccessHandler;
+import com.ssooya.toy.common.security.LoginFailureHandler;
+import com.ssooya.toy.common.security.LoginSuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
-
 	/* 인증방식 */
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -40,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/templates/**");
 	}
+
 
 	/* 시큐어 패턴 등록 */
 	// protected -> 모든 패키지에서 사용 가능하지 않도록 함
