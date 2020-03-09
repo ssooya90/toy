@@ -24,13 +24,7 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 //       로그인 정보 저장
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");
-
-
-
-
-
-
-
+		String errorMsg = exception.getMessage();
 
 	}
 }

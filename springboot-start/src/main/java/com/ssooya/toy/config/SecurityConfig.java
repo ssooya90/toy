@@ -1,8 +1,8 @@
 package com.ssooya.toy.config;
 
-import com.ssooya.toy.common.security.LoginFailureHandler;
-import com.ssooya.toy.common.security.LoginSuccessHandler;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,15 +10,27 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @RequiredArgsConstructor
 @Configurable
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
+
 
 	private final UserDetailsService userDetailsService;
 
@@ -55,10 +67,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 				.and() // 로그인 설정
 				.formLogin()
-				.loginPage("/login")	// 커스텀 로그인 폼
+				.loginPage("/member/signIn")    // 커스텀 로그인 폼
 				.permitAll()
-				.failureHandler(new LoginFailureHandler())
-				.successHandler(new LoginSuccessHandler())
+				.failureHandler(failureHandler())
+				.successHandler(successHandler())
 //				.defaultSuccessUrl("/loginSuccess") // 성공 핸들러를 따로 사용하기위해 주석처리
 
 
@@ -71,6 +83,53 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 				// 403 예외처리 핸들링
 				.exceptionHandling().accessDeniedPage("/user/denied");
+
+	}
+
+	/**
+	 * 로그인 성공 핸들러
+	 * @return 성공 시 메인페이지 리턴
+	 */
+	private AuthenticationSuccessHandler successHandler() {
+
+		return new AuthenticationSuccessHandler() {
+			@Override
+			public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+
+				response.sendRedirect("/");
+
+			}
+		};
+	}
+
+	/**
+	 * 로그인 실패 핸들러
+	 * @return 실패시 에러메세지
+	 */
+	private AuthenticationFailureHandler failureHandler(){
+
+
+		return new AuthenticationFailureHandler() {
+			@Override
+			public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+
+//				response.getWriter().print("{\"success\": false}");
+//				response.getWriter().flush();
+
+
+
+//				출처: https://wedul.site/170 [wedul]
+//
+//
+//				logger.info(String.valueOf(exception));
+//
+//				request.setAttribute("username",request.getParameter("username"));
+//				request.getRequestDispatcher("/member/signIn?error=true").forward(request, response);
+//				request.getRequestDispatcher("/member/signIn").forward(request,response);
+//				req.getRequestDispatcher(this.defaultFailureUrl).forward(req, res);
+
+			}
+		};
 
 	}
 

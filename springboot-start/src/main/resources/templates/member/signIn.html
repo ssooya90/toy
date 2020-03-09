@@ -6,7 +6,7 @@
 	<div class="contents">
 		<section class="">
 			<div class="inner">
-				<form action="/login" method="post">
+				<form action="/member/signIn" method="post">
 					<input type="hidden" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />
 					<div class="formBox formSmall">
 						<div class="row">
@@ -30,6 +30,7 @@
 						</div>
 					</div>
 				</form>
+				<div th:if="${error}" th:text="${error}"></div>
 			</div>
 		</section>
 	</div>
