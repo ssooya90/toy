@@ -67,7 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 				.and() // 로그인 설정
 				.formLogin()
-				.loginPage("/member/signIn")    // 커스텀 로그인 폼
+				.loginPage("/member/signIn")    // 커스텀 로그인 page
+				.loginProcessingUrl("/login") // form url
 				.permitAll()
 				.failureHandler(failureHandler())
 				.successHandler(successHandler())
@@ -108,25 +109,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	private AuthenticationFailureHandler failureHandler(){
 
-
 		return new AuthenticationFailureHandler() {
 			@Override
 			public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
 
-//				response.getWriter().print("{\"success\": false}");
-//				response.getWriter().flush();
 
+				logger.info(String.valueOf(exception));
 
+				request.getRequestDispatcher("/member/signIn?error=true").forward(request, response);
 
-//				출처: https://wedul.site/170 [wedul]
-//
-//
-//				logger.info(String.valueOf(exception));
-//
-//				request.setAttribute("username",request.getParameter("username"));
-//				request.getRequestDispatcher("/member/signIn?error=true").forward(request, response);
-//				request.getRequestDispatcher("/member/signIn").forward(request,response);
-//				req.getRequestDispatcher(this.defaultFailureUrl).forward(req, res);
 
 			}
 		};

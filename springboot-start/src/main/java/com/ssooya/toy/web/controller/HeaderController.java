@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by ssooya90@naver.com on 2020-02-26
@@ -21,7 +22,7 @@ public class HeaderController {
 		return "/member/signUp";
 	}
 
-	@GetMapping("/member/signIn")
+	@RequestMapping("/member/signIn")
 	public String memberLogin() {
 		return "/member/signIn";
 	}
