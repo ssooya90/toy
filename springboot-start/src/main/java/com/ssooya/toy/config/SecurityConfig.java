@@ -1,5 +1,6 @@
 package com.ssooya.toy.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Configurable
@@ -97,7 +101,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			@Override
 			public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
-				response.sendRedirect("/");
+				response.getWriter().print("success");
+				response.getWriter().flush();
 
 			}
 		};
@@ -113,11 +118,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			@Override
 			public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
 
-
 				logger.info(String.valueOf(exception));
 
-				request.getRequestDispatcher("/member/signIn?error=true").forward(request, response);
-
+				response.getWriter().print(exception.getMessage());
+				response.getWriter().flush();
 
 			}
 		};

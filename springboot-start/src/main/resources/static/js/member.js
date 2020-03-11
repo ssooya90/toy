@@ -35,6 +35,34 @@ var member = {
 
 	login : function () {
 
-		$('form').submit();
+		// $('form').submit();
+
+
+		var _token = $('#token').val();
+		var _header = $('#header').val();
+
+
+		$.ajax({
+			url : "/login",
+			type : "post",
+			data : $('form').serialize(),
+			// dataType: "json",
+			success : function (data) {
+
+				console.log(data)
+				if(data == "success"){
+					window.location.href = "/";
+				}else{
+					alert(data);
+				}
+			},
+			beforeSend : function (xhr) {
+				xhr.setRequestHeader(_header , _token)
+
+			}
+
+
+		})
+
 	}
 }

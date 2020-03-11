@@ -7,7 +7,9 @@
 		<section class="">
 			<div class="inner">
 				<form action="/login" method="post">
-					<input type="hidden" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />
+					<input type="hidden" th:id ="token" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />
+					<input type="hidden" th:id ="header" th:name="_csrf_header" th:value="${_csrf.headerName}"/>
+
 					<div class="formBox formSmall">
 						<div class="row">
 							<input placeholder="아이디" name="username" id="username" type="text">
@@ -30,7 +32,10 @@
 						</div>
 					</div>
 				</form>
-				<div th:if="${error}" th:text="${error}"></div>
+				<div th:text="${asdf}"></div>
+				<div th:if="${error}" th:text="${error}">
+					asdf
+				</div>
 			</div>
 		</section>
 	</div>
