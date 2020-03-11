@@ -46,7 +46,7 @@ var member = {
 			url : "/login",
 			type : "post",
 			data : $('form').serialize(),
-			// dataType: "json",
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			success : function (data) {
 
 				console.log(data)

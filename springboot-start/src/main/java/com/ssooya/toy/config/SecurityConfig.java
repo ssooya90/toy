@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
+
+	@Autowired
+	private MessageSource messageSource;
 
 	private final UserDetailsService userDetailsService;
 
@@ -93,6 +99,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * 로그인 성공 핸들러
+	 *
 	 * @return 성공 시 메인페이지 리턴
 	 */
 	private AuthenticationSuccessHandler successHandler() {
@@ -110,9 +117,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * 로그인 실패 핸들러
+	 *
 	 * @return 실패시 에러메세지
 	 */
-	private AuthenticationFailureHandler failureHandler(){
+	private AuthenticationFailureHandler failureHandler() {
 
 		return new AuthenticationFailureHandler() {
 			@Override
@@ -120,8 +128,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 				logger.info(String.valueOf(exception));
 
-				response.getWriter().print(exception.getMessage());
-				response.getWriter().flush();
+				if (exception.getMessage().equals("Bad credentials")) {
+					response.setCharacterEncoding("utf-8");
+					response.getWriter().print("아이디와 비밀번호를 확인해주세요.");
+					response.getWriter().flush();
+				}
+
 
 			}
 		};
