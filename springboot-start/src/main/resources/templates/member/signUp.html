@@ -8,6 +8,8 @@
 			<div class="inner">
 				<form>
 					<div class="formBox formSmall">
+						<input type="hidden" th:id ="token" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />
+
 
 						<div class="row">
 							<input placeholder="아이디" name="userId" id="userId" type="text">

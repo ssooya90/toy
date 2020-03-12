@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/common/head" th:remove="tag"></head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="container">
+	<header th:include="/common/header" th:remove="tag"></header>
+	<div class="contents">
+		<section class="">
+			<div class="inner">
+				<form action="/login" method="post">
+					<input type="hidden" th:id ="token" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />
+					<input type="hidden" th:id ="header" th:name="_csrf_header" th:value="${_csrf.headerName}"/>
+
+					<div class="formBox formSmall">
+
+						<div class="row">
+							<input placeholder="비밀번호 확인" name="password" id="password" type="password">
+						</div>
+						<div class="row">
+							<a href="javascript:myInfo.pwChk()" class="formBtn">확인</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
+<script src="/js/myInfo.js"></script>
+</body>
+</html>
