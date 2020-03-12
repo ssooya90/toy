@@ -35,12 +35,17 @@ SPRING SECURITY
 + ### LOGIN / LOGOUT
 SECURITY를 이용하여 로그인/로그아웃 처리를 진행한다
 SecurityConfig Bean을 만들어서 기본 설정을 Overriding 한다.
+그 외에 권한체크, 성공/실패 시 처리 등을 핸들링할 수 있다.
 
 THYMELEAF
 -----------------------------
 view template으로 THYMELEAF 택함  
 mustache로 시작했지만, 참고할 자료의 부족해서 자료가 풍부한 THYMELEAF 변경작업 완료
 
+
+MessageSource
+-----------------------------
+메세지 소스를 작업할 예정...
 
 
 
