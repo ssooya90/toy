@@ -1,5 +1,7 @@
 var member = {
 
+
+
 	init : function () {
 		var _this = this;
 
@@ -8,13 +10,16 @@ var member = {
 
 	save : function () {
 
+		var _token = $('meta[name="_csrf"]').attr('content');
+		var _header = $('meta[name="_csrf_header"]').attr('content');
+
 		var data = {
 			userId : $('#userId').val()
 			, password : $('#password').val()
 			, userName : $('#userName').val()
 			, userAge : $('#userAge').val()
 			, _csrf : $('input[name=_csrf]').val()
-		}
+		};
 
 
 		$.ajax({
@@ -24,6 +29,13 @@ var member = {
 			, contentType: 'application/json; charset=utf-8'
 			// , data: JSON.stringify(data)
 			, data: JSON.stringify(data)
+			, beforeSend : function (xhr) {
+
+				console.log(xhr)
+				xhr.setRequestHeader(_header , _token);
+
+				console.log(xhr)
+			}
 
 		}).done(function () {
 			alert("회원가입이 완료되었습니다");

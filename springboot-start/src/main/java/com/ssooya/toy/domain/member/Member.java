@@ -30,7 +30,7 @@ public class Member {
 	@Column
 	private String userType;
 
-	@Column
+
 	private String userAge;
 
 	@Builder

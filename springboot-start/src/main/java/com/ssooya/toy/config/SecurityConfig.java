@@ -20,6 +20,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -69,7 +70,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-				.csrf().disable() // csrf를 사용하려면 뷰에서 csrf를 가져와야함
+//				.csrf().disable() // csrf를 사용하려면 뷰에서 csrf를 가져와야함
+				.csrf()
+				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+
+				.and()
 				.authorizeRequests()
 
 				// 페이지 권한 설정
