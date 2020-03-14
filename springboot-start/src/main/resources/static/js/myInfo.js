@@ -20,12 +20,11 @@ var myInfo = {
 			, password : 'asdf'
 			, userName : 'asdf'
 			, userAge : '30'
-			, token : $('#token').val()
 		};
 
 		$.ajax({
 			type: "POST"
-			, url: '/gg'
+			, url: '/myInfo/pwChk'
 			, dataType: 'json'
 			, contentType: 'application/json; charset=utf-8'
 			, data : JSON.stringify(data)

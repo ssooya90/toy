@@ -6,10 +6,7 @@
 	<div class="contents">
 		<section class="">
 			<div class="inner">
-				<form action="/login" method="post">
-					<input type="hidden" th:id ="token" th:name="${_csrf.parameterName}"  th:value="${_csrf.token}" />
-					<input type="hidden" th:id ="header" th:name="_csrf_header" th:value="${_csrf.headerName}"/>
-
+				<form action="/" method="post">
 					<div class="formBox formSmall">
 
 						<div class="row">
