@@ -70,11 +70,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-//				.csrf().disable() // csrf를 사용하려면 뷰에서 csrf를 가져와야함
-				.csrf()
-				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+				.csrf().disable() // csrf를 사용하려면 뷰에서 csrf를 가져와야함
 
-				.and()
+//				.csrf()
+//				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//				.and()
+
 				.authorizeRequests()
 
 				// 페이지 권한 설정
