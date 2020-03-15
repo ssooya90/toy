@@ -44,4 +44,22 @@ section .inner {
   .formSmall .row.center {
     text-align: center; }
 
+.innerMenu ul {
+  font-size: 0;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 50px; }
+  .innerMenu ul li {
+    display: inline-block; }
+    .innerMenu ul li a {
+      display: inline-block;
+      font-size: 20px;
+      width: 200px;
+      background-color: #f9f9f9;
+      line-height: 50px;
+      text-align: center; }
+      .innerMenu ul li a.on {
+        background-color: #bbb;
+        color: #fff; }
+
 /*# sourceMappingURL=style.css.map */

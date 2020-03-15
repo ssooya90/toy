@@ -7,6 +7,20 @@
 		<section class="">
 			<div class="inner">
 				<div th:include="/myInfo/page/myInfoHeader" th:remove="tag"></div>
+				<form action="/" method="post">
+					<div class="formBox formSmall">
+
+						<div class="row">
+							<input placeholder="비밀번호 확인" name="password" id="password" type="password">
+						</div>
+						<div class="row">
+							<a href="javascript:myInfo.pwChk()" class="formBtn">정보수정</a>
+						</div>
+						<div class="row">
+							<a href="javascript:myInfo.pwChk()" class="formBtn">이전으로</a>
+						</div>
+					</div>
+				</form>
 			</div>
 		</section>
 	</div>

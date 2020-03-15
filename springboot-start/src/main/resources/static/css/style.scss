@@ -79,3 +79,31 @@ section .inner{
 	}
 }
 
+.innerMenu{
+
+	ul{
+		font-size: 0;
+		border-bottom:1px solid #ccc;
+		width: 100%;
+		margin-bottom: 50px;
+
+		li{
+			display:inline-block;
+			a{
+				display:inline-block;
+				font-size: 20px;
+				width: 200px;
+				background-color: #f9f9f9;
+				line-height: 50px;
+				text-align: center;
+
+				&.on{
+					background-color: #bbb;
+					color: #fff;
+				}
+			}
+			
+		}
+	}
+}
+

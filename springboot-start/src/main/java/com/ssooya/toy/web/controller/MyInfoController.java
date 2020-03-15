@@ -27,6 +27,15 @@ public class MyInfoController {
 		return new ModelAndView("/myInfo/infoMain");
 	}
 
+	@GetMapping("/myInfo/update")
+	public ModelAndView myInfoUpdate(){
+
+		ModelAndView mav = new ModelAndView("/myInfo/myInfoUpdate");
+		mav.addObject("activeHeader","update");
+
+		return mav;
+	}
+
 //	@PostMapping("/myInfo/pwChk")
 //	public MemberResponseDto pwChk(@RequestBody MemberSaveRequestDto requestDto) {
 //
