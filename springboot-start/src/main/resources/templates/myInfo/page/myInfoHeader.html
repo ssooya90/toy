@@ -1,6 +1,16 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<header th:fragment="header">
+<div th:fragment="myInfoMain">
 	<nav class="menu">
+
+		<div>
+			회원정보
+		</div>
+		<div>
+			게임정보
+		</div>
+		<div>
+			탈퇴
+		</div>
 
 		<!--/* 비로그인 상태 */-->
 		<a sec:authorize="!isAuthenticated()" th:href="@{/member/signUp}">회원가입</a>
@@ -21,4 +31,4 @@
 		<div th:unless="${#authorization.expr('isAuthenticated()')}" th:remove="tag">
 		*/-->
 	</nav>
-</header>
+</div>

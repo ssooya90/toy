@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/common/head" th:remove="tag"></head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="container">
+	<header th:include="/common/header" th:remove="tag"></header>
+	<div class="contents">
+		<section class="">
+			<div class="inner">
+				<div th:include="/myInfo/page/myInfoHeader" th:remove="tag"></div>
+
+			</div>
+		</section>
+	</div>
+</div>
+<script src="/js/myInfo.js"></script>
+</body>
+</html>

@@ -21,6 +21,8 @@ public class MemberController {
 		return memberService.save(requestDto);
 	}
 
+
+
 	@GetMapping("/api/v1/member/{id}")
 	public MemberResponseDto findById(@PathVariable Long id) {
 		return memberService.findById(id);

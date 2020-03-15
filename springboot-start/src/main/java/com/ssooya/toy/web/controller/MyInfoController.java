@@ -1,9 +1,8 @@
 package com.ssooya.toy.web.controller;
 
-import com.ssooya.toy.web.dto.member.MemberSaveRequestDto;
+import com.ssooya.toy.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,6 +12,8 @@ public class MyInfoController {
 
 	private final PasswordEncoder passwordEncoder;
 
+	private final MemberService memberService;
+
 
 	@GetMapping("/myInfo/pwChk")
 	public ModelAndView pwChk(){
@@ -20,12 +21,22 @@ public class MyInfoController {
 		return new ModelAndView("/myInfo/pwChk");
 	}
 
-	@PostMapping("/myInfo/pwChk")
-	public void save(@RequestBody MemberSaveRequestDto requestDto) {
-		requestDto.setPassword(passwordEncoder.encode(requestDto.getPassword()));
-		System.out.println("1");
-//		return memberService.save(requestDto);
+	@GetMapping("/myInfo/")
+	public ModelAndView myInfo(){
+
+		return new ModelAndView("/myInfo/infoMain");
 	}
+
+//	@PostMapping("/myInfo/pwChk")
+//	public MemberResponseDto pwChk(@RequestBody MemberSaveRequestDto requestDto) {
+//
+//		requestDto.setPassword(passwordEncoder.encode(requestDto.getPassword()));
+//
+//		return memberService.findByIdAndPw(requestDto.getUserId(),requestDto.getPassword());
+//
+//
+//
+//	}
 
 
 }

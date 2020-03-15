@@ -16,10 +16,7 @@ var myInfo = {
 		// };
 
 		var data = {
-			userId : 'asdf'
-			, password : 'asdf'
-			, userName : 'asdf'
-			, userAge : '30'
+			password : _pw.val()
 		};
 
 		$.ajax({
