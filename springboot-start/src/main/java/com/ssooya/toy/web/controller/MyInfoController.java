@@ -40,6 +40,8 @@ public class MyInfoController {
 		mav.addObject("activeHeader","update");
 		String username = user.getUsername();
 
+		// username으로 jpa를 통해, member 객체를 가져와야한다.
+
 
 
 
