@@ -1,18 +1,24 @@
 package com.ssooya.toy.web.controller;
 
+import com.ssooya.toy.domain.member.Member;
 import com.ssooya.toy.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 @RequiredArgsConstructor
 @RestController
 public class MyInfoController {
 
 	private final PasswordEncoder passwordEncoder;
-
 	private final MemberService memberService;
+	private final HttpSession httpSession;
 
 
 	@GetMapping("/myInfo/pwChk")
@@ -28,10 +34,17 @@ public class MyInfoController {
 	}
 
 	@GetMapping("/myInfo/update")
-	public ModelAndView myInfoUpdate(){
+	public ModelAndView myInfoUpdate(@AuthenticationPrincipal User user){
 
 		ModelAndView mav = new ModelAndView("/myInfo/myInfoUpdate");
 		mav.addObject("activeHeader","update");
+		String username = user.getUsername();
+
+
+
+
+
+
 
 		return mav;
 	}
