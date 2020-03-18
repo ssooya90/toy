@@ -1,16 +1,18 @@
 package com.ssooya.toy.web.controller;
 
 import com.ssooya.toy.domain.member.Member;
+import com.ssooya.toy.domain.member.MemberRepository;
 import com.ssooya.toy.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,6 +21,9 @@ public class MyInfoController {
 	private final PasswordEncoder passwordEncoder;
 	private final MemberService memberService;
 	private final HttpSession httpSession;
+
+	private final MemberRepository memberRepository;
+
 
 
 	@GetMapping("/myInfo/pwChk")
@@ -38,13 +43,15 @@ public class MyInfoController {
 
 		ModelAndView mav = new ModelAndView("/myInfo/myInfoUpdate");
 		mav.addObject("activeHeader","update");
-		String username = user.getUsername();
+		String userId = user.getUsername();
 
 		// username으로 jpa를 통해, member 객체를 가져와야한다.
 
+		// View에서 username으로 넘겨야 함..!
+		Member member = memberRepository.findByUserId(userId)
+				.orElseThrow(() -> new UsernameNotFoundException(userId));
 
-
-
+		mav.addObject("member",member);
 
 
 
