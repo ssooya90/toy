@@ -37,20 +37,24 @@ var myInfo = {
 
 
 		var param = {
-
-		}
+			userId : $('input[name=userId]').val()
+			, userName : $('input[name=userName]').val()
+			, userAGe : $('input[name=userAge]').val()
+		};
 
 		$.ajax({
-			type : "post"
-			, url : '/myInfo/update'
-			, dataType : 'json'
+			type : 'PUT'
+			, url: '/myinfo/update/' + param.userId
+			, dataType: 'json'
 			, contentType: 'application/json; charset=utf-8'
-			, data : JSON.stringify(param)
+			, data: JSON.stringify(param)
 		}).done(function (data) {
 			console.log(data)
 		}).fail(function (data) {
 			console.log(data)
 		});
+
+	}
 
 
 };

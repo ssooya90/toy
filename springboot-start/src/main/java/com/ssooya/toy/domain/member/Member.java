@@ -42,4 +42,9 @@ public class Member {
 		this.userAge = userAge;
 	}
 
+	public void update(String userName, String userAge){
+		this.userName = userName;
+		this.userAge = userAge;
+	}
+
 }

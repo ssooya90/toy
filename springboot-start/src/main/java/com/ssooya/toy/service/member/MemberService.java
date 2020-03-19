@@ -5,6 +5,7 @@ import com.ssooya.toy.domain.member.Member;
 import com.ssooya.toy.domain.member.MemberRepository;
 import com.ssooya.toy.web.dto.member.MemberResponseDto;
 import com.ssooya.toy.web.dto.member.MemberSaveRequestDto;
+import com.ssooya.toy.web.dto.member.MemberUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +48,23 @@ public class MemberService {
 	public MemberResponseDto findById(Long id){
 		Member entity = memberRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 회원이 없습니다." + id));
 		return new MemberResponseDto(entity);
+	}
+
+	/**
+	 * 사용자 정보 업데이트
+	 * @param id
+	 * @param requestDto
+	 * @return id
+	 */
+	@Transactional
+	public Long update(Long id, MemberUpdateRequestDto requestDto){
+
+		Member member = memberRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+
+		member.update(member.getUserName(), member.getUserAge());
+
+		return id;
 	}
 
 

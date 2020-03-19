@@ -3,6 +3,7 @@ package com.ssooya.toy.web.controller;
 import com.ssooya.toy.domain.member.Member;
 import com.ssooya.toy.domain.member.MemberRepository;
 import com.ssooya.toy.service.member.MemberService;
+import com.ssooya.toy.web.dto.member.MemberUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -53,10 +54,23 @@ public class MyInfoController {
 
 		mav.addObject("member",member);
 
-
-
 		return mav;
 	}
+
+	@PutMapping("/myinfo/update/{userId}")
+	public Long update(@PathVariable String userId, @RequestBody MemberUpdateRequestDto requestDto){
+
+		Member member = memberRepository.findByUserId(userId)
+				.orElseThrow(() -> new UsernameNotFoundException(userId));
+
+		return memberService.update(member.getId(), requestDto);
+	}
+
+
+
+
+
+
 
 //	@PostMapping("/myInfo/pwChk")
 //	public MemberResponseDto pwChk(@RequestBody MemberSaveRequestDto requestDto) {
