@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="/common/head" th:remove="tag"></head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="container">
+	<header th:include="/common/header" th:remove="tag"></header>
+	<div class="contents">
+		<section class="">
+			<div class="inner">
+				<div th:include="/myInfo/page/myInfoHeader" th:remove="tag"></div>
+				<form action="/" method="post">
+					<input name="userId" id="userId" type="text" disabled th:value="${member.userId}">
+					<div class="formBox formSmall">
+						<div class="row">
+							<a href="javascript:myInfo.update()" class="formBtn">회원탈퇴</a>
+						</div>
+						<div class="row">
+							<a href="javascript:history.back()" class="formBtn">이전으로</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
+<script src="/js/myInfo.js"></script>
+</body>
+</html>
