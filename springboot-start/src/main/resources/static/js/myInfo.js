@@ -30,6 +30,27 @@ var myInfo = {
 			}
 		})
 
-	}
+	},
+
+
+	update : function () {
+
+
+		var param = {
+
+		}
+
+		$.ajax({
+			type : "post"
+			, url : '/myInfo/update'
+			, dataType : 'json'
+			, contentType: 'application/json; charset=utf-8'
+			, data : JSON.stringify(param)
+		}).done(function (data) {
+			console.log(data)
+		}).fail(function (data) {
+			console.log(data)
+		});
+
 
 };
