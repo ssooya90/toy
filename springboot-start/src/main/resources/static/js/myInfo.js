@@ -39,7 +39,7 @@ var myInfo = {
 		var param = {
 			userId : $('input[name=userId]').val()
 			, userName : $('input[name=userName]').val()
-			, userAGe : $('input[name=userAge]').val()
+			, userAge : $('input[name=userAge]').val()
 		};
 
 		$.ajax({
@@ -49,7 +49,8 @@ var myInfo = {
 			, contentType: 'application/json; charset=utf-8'
 			, data: JSON.stringify(param)
 		}).done(function (data) {
-			console.log(data)
+			alert("회원정보 수정완료");
+			window.location.href='/';
 		}).fail(function (data) {
 			console.log(data)
 		});

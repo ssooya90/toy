@@ -62,7 +62,8 @@ public class MemberService {
 		Member member = memberRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
 
-		member.update(member.getUserName(), member.getUserAge());
+		member.update(requestDto.getUserName(), requestDto.getUserAge());
+
 
 		return id;
 	}
