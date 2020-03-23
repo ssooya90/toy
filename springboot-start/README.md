@@ -42,6 +42,7 @@ THYMELEAF
 view template으로 THYMELEAF 택함  
 mustache로 시작했지만, 참고할 자료의 부족해서 자료가 풍부한 THYMELEAF 변경작업 완료
 
+* thymeleaf에 파라미터 값이 전달되지 않으면 에러 발생(널 처리 X)
 
 MessageSource
 -----------------------------
