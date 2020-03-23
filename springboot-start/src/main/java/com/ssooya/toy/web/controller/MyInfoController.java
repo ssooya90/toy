@@ -39,10 +39,6 @@ public class MyInfoController {
 		return new ModelAndView("/myInfo/infoMain");
 	}
 
-	@GetMapping("/test")
-	public ModelAndView test(){
-		return new ModelAndView("/myInfo/myInfoDelete");
-	}
 
 	@GetMapping("/myInfo/update")
 	public ModelAndView myInfoUpdate(@AuthenticationPrincipal User user){

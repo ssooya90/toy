@@ -8,11 +8,10 @@
 			<div class="inner">
 				<div th:include="/myInfo/page/myInfoHeader" th:remove="tag"></div>
 				<form action="/" method="post">
-					<input name="userId" id="userId" type="text" disabled th:value="${member.userId}">
 					<div class="formBox formSmall">
 						<div class="row">
 							<a href="javascript:myInfo.delete()" class="formBtn">회원탈퇴</a>
-						</div>0
+						</div>
 						<div class="row">
 							<a href="javascript:history.back()" class="formBtn">이전으로</a>
 						</div>
