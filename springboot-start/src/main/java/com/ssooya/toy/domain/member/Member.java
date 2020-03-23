@@ -30,7 +30,10 @@ public class Member {
 	@Column
 	private String userType;
 
+	@Column
+	private String userState;
 
+	@Column
 	private String userAge;
 
 	@Builder
@@ -45,6 +48,10 @@ public class Member {
 	public void update(String userName, String userAge){
 		this.userName = userName;
 		this.userAge = userAge;
+	}
+
+	public void delete(String userState){
+		this.userState = userState;
 	}
 
 }

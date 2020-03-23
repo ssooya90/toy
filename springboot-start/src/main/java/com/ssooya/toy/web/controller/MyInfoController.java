@@ -39,6 +39,11 @@ public class MyInfoController {
 		return new ModelAndView("/myInfo/infoMain");
 	}
 
+	@GetMapping("/test")
+	public ModelAndView test(){
+		return new ModelAndView("/myInfo/myInfoDelete");
+	}
+
 	@GetMapping("/myInfo/update")
 	public ModelAndView myInfoUpdate(@AuthenticationPrincipal User user){
 
@@ -57,6 +62,15 @@ public class MyInfoController {
 		return mav;
 	}
 
+	@GetMapping("/myInfo/delete")
+	public ModelAndView myInfoDelete(){
+
+		ModelAndView mav = new ModelAndView("/myInfo/myInfoDelete");
+		mav.addObject("activeHeader","delete");
+
+		return mav;
+	}
+
 	@PutMapping("/myinfo/update/{userId}")
 	public Long update(@PathVariable String userId, @RequestBody MemberUpdateRequestDto requestDto){
 
@@ -65,6 +79,26 @@ public class MyInfoController {
 
 		return memberService.update(member.getId(), requestDto);
 	}
+
+
+//	@PostMapping("/myInfo/deleteProc")
+//	public ModelAndView delete(@AuthenticationPrincipal User user){
+//
+//		ModelAndView mav = new ModelAndView("");
+//		mav.addObject("activeHeader","update");
+//
+//		String userId = user.getUsername();
+//
+//		// View에서 username으로 넘겨야 함..!
+//		Member member = memberRepository.findByUserId(userId)
+//				.orElseThrow(() -> new UsernameNotFoundException(userId));
+//
+//
+//		mav.addObject("member",member);
+//
+//		return mav;
+//	}
+
 
 
 

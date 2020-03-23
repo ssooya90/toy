@@ -2,13 +2,14 @@
 <nav th:fragment="myInfoMain" class="innerMenu">
 	<ul>
 		<li>
-			<a th:href="@{/myInfo/update}" th:class="${activeHeader=='update' ? 'on' : ''}">회원정보 수정@</a>
+			<a th:href="@{/myInfo/update}" th:class="${activeHeader=='update' ? 'on' : ''}">회원정보 수정</a>
 		</li>
 		<li>
-			<a href="javascript:alert('준비중')">게임정보</a>
+			<a th:href="@{/myInfo/update}" th:class="${activeHeader=='update' ? 'on' : ''}">회원정보 수정</a>
+			<!--			<a href="javascript:alert('준비중')">게임정보</a>-->
 		</li>
 		<li>
-			<a href="#none">회원탈퇴</a>
+			<a th:href="@{/test}" th:class="${activeHeader=='update' ? 'on' : ''}">회원탈퇴</a>
 		</li>
 	</ul>
 </nav>
