@@ -74,12 +74,14 @@ public class MemberService {
 	 * @param requestDto
 	 * @return
 	 */
+
+	@Transactional
 	public Long delete(Long id, MemberUpdateRequestDto requestDto){
 
 		Member member = memberRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
 
-		member.update("수정","100");
+		member.delete(requestDto.getUserState());
 
 		return id;
 	}

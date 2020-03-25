@@ -76,7 +76,7 @@ public class MyInfoController {
 		Member member = memberRepository.findByUserId(userId)
 				.orElseThrow(() -> new UsernameNotFoundException(userId));
 
-		return memberService.update(member.getId(), requestDto);
+		return memberService.delete(member.getId(), requestDto);
 	}
 
 

@@ -19,6 +19,9 @@
 							<input placeholder="나이" name="userAge" id="userAge" type="text" th:value="${member.userAge}" >
 						</div>
 						<div class="row">
+							<input type="text" disabled th:value="${member.userState}" >
+						</div>
+						<div class="row">
 							<a href="javascript:myInfo.update()" class="formBtn">정보수정</a>
 						</div>
 						<div class="row">
