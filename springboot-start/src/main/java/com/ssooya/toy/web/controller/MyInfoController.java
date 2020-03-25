@@ -67,6 +67,19 @@ public class MyInfoController {
 		return mav;
 	}
 
+	@PostMapping("/myInfo/delete")
+	public Long myInfoDeleteProc(@AuthenticationPrincipal User user, @RequestBody MemberUpdateRequestDto requestDto){
+
+		// View에서 username으로 넘겨야 함..!
+
+		String userId = user.getUsername();
+		Member member = memberRepository.findByUserId(userId)
+				.orElseThrow(() -> new UsernameNotFoundException(userId));
+
+		return memberService.update(member.getId(), requestDto);
+	}
+
+
 	@PutMapping("/myinfo/update/{userId}")
 	public Long update(@PathVariable String userId, @RequestBody MemberUpdateRequestDto requestDto){
 

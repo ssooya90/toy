@@ -8,7 +8,6 @@ public class MemberUpdateRequestDto {
 
 	private String userName;
 	private String userAge;
-
 	private String userState;
 
 	@Builder

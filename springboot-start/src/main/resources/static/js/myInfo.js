@@ -59,15 +59,19 @@ var myInfo = {
 
 	delete : function () {
 
+		var param = {
+			userState : '0'
+		};
 
 		if(confirm("탈퇴 후 재가입은 불가능합니다. 탈퇴하시겠습니까?")){
 
 			$.ajax({
 				type : 'POST'
-				, url: '/myinfo/delete/'
+				, url: '/myInfo/delete'
 				, dataType: 'json'
 				, contentType: 'application/json; charset=utf-8'
 				, data: JSON.stringify(param)
+
 			}).done(function (data) {
 				alert("회원탈퇴 완료");
 				window.location.href='/';
