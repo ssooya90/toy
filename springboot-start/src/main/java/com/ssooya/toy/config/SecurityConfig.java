@@ -1,6 +1,8 @@
 package com.ssooya.toy.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ssooya.toy.domain.member.Member;
+import com.ssooya.toy.domain.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +17,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -36,6 +40,8 @@ import java.util.Map;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
+
+	private MemberRepository memberRepository;
 
 
 	@Autowired
@@ -113,7 +119,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			@Override
 			public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 
+
+				User user = (User) authentication.getPrincipal();
+				String userId = user.getUsername();
+
+				// View에서 username으로 넘겨야 함..!
+				Member member = memberRepository.findByUserId(userId)
+				.orElseThrow(() -> new UsernameNotFoundException(userId));
+
+
 				response.getWriter().print("success");
+
 				response.getWriter().flush();
 
 			}

@@ -47,6 +47,8 @@ var member = {
 		}).done(function (data) {
 
 			if(data == "success"){
+
+
 				window.location.href = "/";
 			}else{
 				alert(data);
