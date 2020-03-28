@@ -7,6 +7,7 @@
 		<a sec:authorize="!isAuthenticated()" th:href="@{/member/signIn}">로그인</a>
 
 		<!--/* 로그인 상태 */-->
+		<a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/board/}">자유게시판</a>
 		<a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/myInfo/}">내정보</a>
 		<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">어드민</a>
 		<a sec:authorize="isAuthenticated()" th:href="@{/logout}">로그아웃</a>
