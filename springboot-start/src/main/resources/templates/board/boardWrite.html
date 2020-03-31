@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="/">
+
+<head th:include="/common/head" th:remove="tag"></head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="container">
+	<header th:replace="/common/header"></header>
+	<div class="contents">
+		<section class="">
+			<div class="inner">
+				<form action="/board/save" method="post">
+
+					<div class="formBox formSmall">
+						<div class="row">
+							<div class="subject">제목</div>
+							<input placeholder="아이디" name="title" id="title" type="text">
+						</div>
+
+						<div class="row">
+							<div class="subject">내용</div>
+							<textarea id="contents" name="contents"></textarea>
+						</div>
+						<div class="row">
+							<a href="#none" class="formBtn naver">작성완료</a>
+						</div>
+						<div class="row">
+							<a href="#none" class="formBtn google">취소</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
+<script src="/js/member.js"></script>
+</body>
+</html>

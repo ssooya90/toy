@@ -1,5 +1,6 @@
 package com.ssooya.toy.domain.board;
 
+import com.ssooya.toy.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "BOARD")
-public class Board {
+public class Board extends BaseTimeEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
