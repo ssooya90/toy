@@ -23,13 +23,24 @@ public class BoardController {
 		List list = new ArrayList();
 
 		model.addAttribute("listData",list);
+		model.addAttribute("test","test");
 
 		return "/board/boardList";
 	}
 
 
-//	@PostMapping("/board/save")
-//	public String boardSave(@RequestBody )
+	/**
+	 * 게시판 조회
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/board/boardWrite")
+	public String boardWrite(Model model){
+
+		return "/board/boardWrite";
+	}
+
+
 
 
 }

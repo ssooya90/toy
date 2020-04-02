@@ -1,6 +1,21 @@
 var baord = {
 
+
+	init : function () {
+
+		var _this = this;
+
+		$('#writeMoveBtn').on('click',function () {
+
+			_this.write_move();
+		});
+
+	},
+
+
+
 	save: function () {
+
 
 		var _param = {
 			title : $('input[name=title]').val(),
@@ -19,6 +34,13 @@ var baord = {
 			alert(JSON.stringify(error))
 		})
 
+	},
+
+	write_move : function () {
+
+		location.href='/board/boardWrite';
 	}
 
-}
+};
+
+baord.init();

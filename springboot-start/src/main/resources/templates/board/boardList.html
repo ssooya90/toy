@@ -23,20 +23,20 @@
 					</thead>
 					<tbody>
 					<tr th:if="${#lists.size(listData) == 0}">
-						<td colspan="5" style="text-align: center;">작성된 글이 없습니다.</td>
+						<td colspan="5" style="text-align: center;">작성된 글이 없습니다.!!</td>
 					</tr>
 					</tbody>
 				</table>
 
 				<div class="btnBox" style="text-align: right; margin-top:20px;">
-					<button type="button">작성하기</button>
+					<button type="button" id="writeMoveBtn">작성하기</button>
 				</div>
 
 			</div>
 		</section>
 	</div>
 </div>
-
+<script src="/js/board.js"></script>
 </body>
 
 </html>
