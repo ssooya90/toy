@@ -34,8 +34,13 @@ SPRING SECURITY
 ------------------------------
 + ### LOGIN / LOGOUT
 SECURITY를 이용하여 로그인/로그아웃 처리를 진행한다
+  
 SecurityConfig Bean을 만들어서 기본 설정을 Overriding 한다.
 그 외에 권한체크, 성공/실패 시 처리 등을 핸들링할 수 있다.
+  
+csrf를 사용하면 모든 헤더에서 csrf를 가지고 다녀야한다.
+
+테스트용은 csrf.disabled() 
 
 THYMELEAF
 -----------------------------
@@ -49,5 +54,15 @@ MessageSource
 메세지 소스를 작업할 예정...
 
 
+TEST_CODE
+-----------------------------
+given --> 파라미터 설정  
+when --> 상황  
+then --> 결과
+
+LOCAL_DATE
+----------------------------
+JAVA8부터 사용할 수 있는 기능으로  
+Date와 calendar를 대체한다.
 
 
