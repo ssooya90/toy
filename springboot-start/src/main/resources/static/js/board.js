@@ -16,18 +16,22 @@ var baord = {
 
 	save: function () {
 
-
 		var _param = {
 			title : $('input[name=title]').val(),
-			contents : $('input[name=contents]').val(),
+			contents : $('textarea[name=contents]').val(),
+			writer : "테스트"
 		};
 
 		$.ajax({
 			url : "/board/save",
-			data : _param,
-			type : 'post'
+			data : JSON.stringify(_param),
+			type : 'post',
+			dataType : 'json',
+			contentType : 'application/json; charset=utf-8'
 		}).done(function (data) {
 
+			alert("작성완료");
+			window.location.href ="/";
 
 
 		}).fail(function (error) {

@@ -1,45 +1,57 @@
 package com.ssooya.toy.web.controller;
 
+import com.ssooya.toy.service.board.BoardService;
+import com.ssooya.toy.web.dto.board.BoardSaveRequestDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RequiredArgsConstructor
+@RestController
 public class BoardController {
+
+	private final BoardService boardService;
 
 	/**
 	 * 게시판 조회
-	 * @param model
+	 * @param mav
 	 * @return
 	 */
 	@GetMapping("/board")
-	public String board(Model model){
+	public ModelAndView board(ModelAndView mav){
 
 		List list = new ArrayList();
+		mav.setViewName("/board/boardList");
 
-		model.addAttribute("listData",list);
-		model.addAttribute("test","test");
+		mav.addObject("listData",list);
+		mav.addObject("test","test");
 
-		return "/board/boardList";
+		return mav;
 	}
 
 
 	/**
 	 * 게시판 조회
-	 * @param model
 	 * @return
 	 */
 	@GetMapping("/board/boardWrite")
-	public String boardWrite(Model model){
+	public ModelAndView boardWrite(){
+		return new ModelAndView("/board/boardWrite");
 
-		return "/board/boardWrite";
 	}
 
+	@PostMapping("/board/save")
+	public Long boardSave(@RequestBody BoardSaveRequestDto requestDto){
+		return boardService.save(requestDto);
+	}
 
 
 

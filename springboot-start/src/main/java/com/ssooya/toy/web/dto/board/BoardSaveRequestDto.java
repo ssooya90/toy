@@ -1,5 +1,6 @@
 package com.ssooya.toy.web.dto.board;
 
+import com.ssooya.toy.domain.board.Board;
 import com.ssooya.toy.web.dto.member.MemberSaveRequestDto;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +23,14 @@ public class BoardSaveRequestDto {
 		this.title = title;
 		this.contents = contents;
 		this.writer = writer;
+	}
+
+	public Board toEntity(){
+		return Board.builder()
+				.title(title)
+				.contents(contents)
+				.writer(writer)
+				.build();
 	}
 
 
