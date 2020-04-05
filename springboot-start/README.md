@@ -65,4 +65,9 @@ LOCAL_DATE
 JAVA8부터 사용할 수 있는 기능으로  
 Date와 calendar를 대체한다.
 
+Optional
+----------------------------
+JAVA8부터 사용가능한 메서드
+null처리에 유용하다
+
 
