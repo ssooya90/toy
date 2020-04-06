@@ -28,6 +28,8 @@ public class BoardService {
 		return boardRepository.save(requestDto.toEntity()).getId();
 	}
 
+
+
 	@Transactional
 	public List<BoardListResponseDto> findAllDesc() {
 		return boardRepository.findAllDesc().stream()

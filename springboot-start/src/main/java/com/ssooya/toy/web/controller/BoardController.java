@@ -28,11 +28,8 @@ public class BoardController {
 	@GetMapping("/board")
 	public ModelAndView board(ModelAndView mav){
 
-		List list = new ArrayList();
 		mav.setViewName("/board/boardList");
-
-		mav.addObject("listData",list);
-		mav.addObject("test","test");
+		mav.addObject("listData",boardService.findAllDesc());
 
 		return mav;
 	}
