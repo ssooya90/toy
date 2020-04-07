@@ -38,8 +38,6 @@ repositories {
     jcenter()
 }
 
-
-
 sourceCompatibility = 1.8
 
 repositories {
