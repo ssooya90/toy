@@ -31,10 +31,6 @@ public class BoardController {
 		mav.setViewName("/board/boardList");
 		mav.addObject("listData",boardService.findAllDesc());
 
-		System.out.println("테스트");
-		System.out.println("테스트");
-		System.out.println("테스트");
-
 		return mav;
 	}
 
