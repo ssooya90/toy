@@ -1,5 +1,8 @@
 package com.ssooya.toy.web.controller;
 
+import com.ssooya.toy.domain.board.Board;
+import com.ssooya.toy.domain.board.BoardRepository;
+import com.ssooya.toy.domain.member.MemberRepository;
 import com.ssooya.toy.service.board.BoardService;
 import com.ssooya.toy.web.dto.board.BoardResponseDto;
 import com.ssooya.toy.web.dto.board.BoardSaveRequestDto;
@@ -17,6 +20,8 @@ import java.util.List;
 public class BoardController {
 
 	private final BoardService boardService;
+	private final BoardRepository boardRepository;
+
 
 	/**
 	 * 게시판 조회
@@ -38,7 +43,14 @@ public class BoardController {
 	public ModelAndView boardView(@PathVariable Long id, ModelAndView mav){
 
 		mav.addObject("board",boardService.findById(id));
+
+		Board board = boardRepository.findById(id).orElseThrow(() -> new NullPointerException());
+		boardService.hitUpdate(board.getId());
+
+
 		mav.setViewName("/board/boardView");
+
+
 
 		return mav;
 

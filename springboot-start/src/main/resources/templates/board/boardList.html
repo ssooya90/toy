@@ -38,7 +38,7 @@
 							<a th:href="@{'/board/' + ${board.id}}" th:text="${board.title}"></a>
 						</td>
 						<td th:text="${board.getWriter()}"></td>
-						<td></td>
+						<td th:text="${board.getHit()}"></td>
 						<td th:text="${board.getModifedDate()}"></td>
 					</tr>
 					</tbody>

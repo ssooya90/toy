@@ -47,4 +47,13 @@ public class BoardService {
 	}
 
 
+	@Transactional
+	public void hitUpdate(Long id) {
+
+		Board board = boardRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다."));
+
+		board.hitUpdate(id);
+
+	}
 }

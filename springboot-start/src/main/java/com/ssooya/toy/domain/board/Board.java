@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -27,11 +28,18 @@ public class Board extends BaseTimeEntity {
 	@Column(nullable = false)
 	private String contents;
 
+	@Column
+	@ColumnDefault("0")
+	private int hit;
 
 	@Builder
 	public Board(String title, String writer, String contents){
 		this.title = title;
 		this.writer = writer;
 		this.contents = contents;
+	}
+
+	public void hitUpdate(Long id){
+		this.hit = this.hit + 1;
 	}
 }
