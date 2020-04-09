@@ -35,7 +35,7 @@
 					<tr th:each="board : ${listData}">
 						<td th:text="${boardStat.count}"></td>
 						<td>
-							<a th:href="@{/board/(board.id)}" th:text="${board.title}"></a>
+							<a th:href="@{'/board/' + ${board.id}}" th:text="${board.title}"></a>
 						</td>
 						<td th:text="${board.getWriter()}"></td>
 						<td></td>

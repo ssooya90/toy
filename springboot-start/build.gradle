@@ -53,7 +53,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa') // springboot용 jpa 추상화 라이브러리
 
     // devtools
-    // compile('org.springframework.boot:spring-boot-devtools')
+     compile('org.springframework.boot:spring-boot-devtools')
 
     //MARIA DB
     compile('org.mariadb.jdbc:mariadb-java-client')
