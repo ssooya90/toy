@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="/">
+
+<head th:include="/common/head" th:remove="tag"></head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="container">
+	<header th:replace="/common/header"></header>
+	<div class="contents">
+		<section class="">
+			<div class="inner">
+				<form action="/board/save" method="post">
+					<div class="formBox formSmall">
+						<div class="row">
+							<div class="subject">제목</div>
+							<input placeholder="제목" name="title" id="title" type="text" style="margin-top:5px;" th:value="${board.title}" readonly>
+						</div>
+						<div class="row">
+							<div class="subject">작성자</div>
+							<input placeholder="제목" name="writer" id="writer" type="text" style="margin-top:5px;" th:value="${board.writer}" readonly>
+						</div>
+						<div class="row">
+							<div class="subject">내용</div>
+							<textarea id="contents" name="contents" style="border:1px solid #ccc; width: 100%; margin-top:5px;" placeholder="내용" readonly th:text="${board.contents}"></textarea>
+						</div>
+						<div class="row">
+							<a href="javascript:baord.remove()" class="formBtn naver">삭제</a>
+						</div>
+						<div class="row">
+							<a href="javascript:history.back()" class="formBtn google">뒤로가기</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
+<script src="/js/board.js"></script>
+</body>
+</html>

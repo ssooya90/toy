@@ -1,14 +1,12 @@
 package com.ssooya.toy.web.controller;
 
 import com.ssooya.toy.service.board.BoardService;
+import com.ssooya.toy.web.dto.board.BoardResponseDto;
 import com.ssooya.toy.web.dto.board.BoardSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -34,6 +32,17 @@ public class BoardController {
 		return mav;
 	}
 
+
+
+	@GetMapping("/board/{id}")
+	public ModelAndView boardView(@PathVariable Long id, ModelAndView mav){
+
+		mav.addObject("board",boardService.findById(id));
+		mav.setViewName("/board/boardView");
+
+		return mav;
+
+	}
 
 	/**
 	 * 게시판 조회

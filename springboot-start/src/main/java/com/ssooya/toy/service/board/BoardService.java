@@ -2,8 +2,10 @@ package com.ssooya.toy.service.board;
 
 
 import com.ssooya.toy.config.SecurityConfig;
+import com.ssooya.toy.domain.board.Board;
 import com.ssooya.toy.domain.board.BoardRepository;
 import com.ssooya.toy.web.dto.board.BoardListResponseDto;
+import com.ssooya.toy.web.dto.board.BoardResponseDto;
 import com.ssooya.toy.web.dto.board.BoardSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -36,4 +38,13 @@ public class BoardService {
 				.map(BoardListResponseDto::new)
 				.collect(Collectors.toList());
 	}
+
+	public BoardResponseDto findById(Long id){
+		Board entity = boardRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id +=" + id));
+
+		return new BoardResponseDto(entity);
+	}
+
+
 }
