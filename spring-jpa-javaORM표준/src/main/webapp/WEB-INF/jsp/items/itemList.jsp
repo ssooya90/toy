@@ -8,6 +8,8 @@
 <div class="container">
     <jsp:include page="../fragments/bodyHeader.jsp" />
 
+	${item}@@
+	
     <div>
         <table class="table table-striped">
             <thead>
