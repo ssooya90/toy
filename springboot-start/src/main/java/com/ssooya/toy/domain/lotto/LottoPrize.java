@@ -1,27 +1,21 @@
 package com.ssooya.toy.domain.lotto;
 
 import com.ssooya.toy.domain.BaseTimeEntity;
-import com.ssooya.toy.domain.member.Member;
 import lombok.Builder;
 
 import javax.persistence.*;
 
 /**
- * Created by ssooya90@naver.com on 2020-04-14
+ * Created by ssooya90@naver.com on 2020-04-16
  * Github : http://github.com/ssooya90
  */
-
 @Entity
-@Table(name = "LOTTO")
-public class Lotto extends BaseTimeEntity {
+@Table(name = "LOTTO_PRIZE")
+public class LottoPrize extends BaseTimeEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long Id;
-
-	@ManyToOne
-	@JoinColumn(name = "member_id" , referencedColumnName = "id")
-	private Member member;
 
 	@Column(nullable = false)
 	private int round;
@@ -44,10 +38,8 @@ public class Lotto extends BaseTimeEntity {
 	@Column(nullable = false)
 	private int lotto6;
 
-
 	@Builder
-	public Lotto(Member member, int round, int lotto1, int lotto2, int lotto3, int lotto4, int lotto5, int lotto6){
-		this.member = member;
+	public LottoPrize(int round, int lotto1, int lotto2, int lotto3, int lotto4, int lotto5, int lotto6 ){
 		this.round = round;
 		this.lotto1 = lotto1;
 		this.lotto2 = lotto2;
@@ -59,7 +51,6 @@ public class Lotto extends BaseTimeEntity {
 
 
 	/**
-	 * 당첨 유무를 해당 엔티티에 저장하는게 좋을까? 따로 테이블을 만드는게 좋읗까?
-	 * 왜 안되냐
+	 * 회차별 당첨번호 선정
 	 */
 }
