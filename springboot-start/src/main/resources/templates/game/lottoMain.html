@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="/">
+
+<head th:include="/common/head" th:remove="tag"></head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="container">
+	<header th:replace="/common/header"></header>
+	<div class="contents">
+		<section class="">
+			<div class="inner">
+
+				<div class="tabs">
+					<a href="#none" class="on">로또 구매</a>
+					<a href="#none">구매 내역</a>
+				</div>
+
+				<div class="con">
+
+					<div class="roundInfo">
+						회차정보 : <span class="round"></span>
+					</div>
+
+					<div class="numberSelect">
+					</div>
+
+				</div>
+
+<!--				<form action="/board/save" method="post">-->
+<!--					<div class="formBox formSmall">-->
+<!--						<div class="row">-->
+<!--							<div class="subject">제목</div>-->
+<!--							<input placeholder="제목" name="title" id="title" type="text" style="margin-top:5px;">-->
+<!--						</div>-->
+<!--						<div class="row">-->
+<!--							<div class="subject">내용</div>-->
+<!--							<textarea id="contents" name="contents" style="border:1px solid #ccc; width: 100%; margin-top:5px;" placeholder="내용"></textarea>-->
+<!--						</div>-->
+<!--						<div class="row">-->
+<!--							<a href="javascript:baord.save()" class="formBtn naver">작성완료</a>-->
+<!--						</div>-->
+<!--						<div class="row">-->
+<!--							<a href="javascript:history.back()" class="formBtn google">취소</a>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</form>-->
+			</div>
+		</section>
+	</div>
+</div>
+<script src="/js/game.js"></script>
+
+</body>
+</html>

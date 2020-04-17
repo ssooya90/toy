@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class LottoPrize extends BaseTimeEntity {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 
 	@Column(nullable = false)

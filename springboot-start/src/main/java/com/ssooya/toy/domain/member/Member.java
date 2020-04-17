@@ -36,6 +36,9 @@ public class Member {
 	@Column
 	private String userAge;
 
+	@Column
+	private String deposit;
+
 	@Builder
 	public Member(String userId, String password, String userName, String userType, String userAge){
 		this.userId = userId;
@@ -44,6 +47,8 @@ public class Member {
 		this.userType = userType;
 		this.userAge = userAge;
 	}
+
+
 
 	public void update(String userName, String userAge){
 		this.userName = userName;

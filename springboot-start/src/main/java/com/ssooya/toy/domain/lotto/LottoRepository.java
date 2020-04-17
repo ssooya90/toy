@@ -8,6 +8,8 @@ import java.util.Optional;
 // <Entity Class, PK타입> 상속
 public interface LottoRepository extends JpaRepository<Lotto, Long> {
 
-	Optional<Lotto> findById(String id);
+//	Optional<Lotto> findById(String id);
+
+
 
 }
