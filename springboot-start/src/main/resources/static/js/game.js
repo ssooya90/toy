@@ -55,7 +55,53 @@ var game = {
 
 		_parents.append(_str);
 
+	},
+
+	// 로또번호 선택
+	lottoSelect : function () {
+
+		var _amount = $('#amount');
+		var _auto = $('#autoSelect');
+
+		var _parents = $('.numberSelect');
+		var _cnt = 0;
+
+		var _lotto = [];
+
+		$.each(_parents.find('input[type=checkBox]'), function (index, item) {
+
+			if($(this).prop("checked")){
+				_cnt++;
+				_lotto.push($(this).val());
+			}
+
+
+
+		});
+
+
+		if(_auto.prop("checked")){
+
+		}else{
+
+			if(_cnt != 6){
+
+				alert("입력하지 않았습니다.");
+				return;
+			}
+		}
+
+
+
+
+
+
+
+
+
+
 	}
+
 
 
 };

@@ -22,9 +22,25 @@
 					<div class="numberSelect">
 					</div>
 
-					<div class="menuBox">
-						수량선택 : <input type="number">
-						<a href="#none">구매하기</a>
+					<div class="menuBox" style="margin-top:20px;">
+						수량선택 : <input type="number" id="amount">
+
+						<div style="margin-top:20px;">
+							<label>
+								<input type="checkbox" id="autoSelect">자동선택
+							</label>
+						</div>
+						<div style="margin-top:20px;">
+							<a href="javascript:game.lottoSelect()">선택</a>
+						</div>
+					</div>
+
+					<div class="myNum">
+						<div>내가 선택한 번호</div>
+						<div class="list">
+							<div class="row">
+							</div>
+						</div>
 					</div>
 
 				</div>
