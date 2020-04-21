@@ -82,6 +82,7 @@ var game = {
 
 		if(_auto.prop("checked")){
 
+
 		}else{
 
 			if(_cnt != 6){
@@ -92,15 +93,15 @@ var game = {
 		}
 
 
+	},
 
+	makeNum : function (data) {
 
+		var _str = "";
 
+		return _str;
 
-
-
-
-
-	}
+	},
 
 
 
