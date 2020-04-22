@@ -108,13 +108,20 @@ var game = {
 			_str += '<span>' + data[i] + '</span>';
 		}
 		_str += '</div>';
-
-
-
 		return _str;
-
 	},
 
+
+	lottoBuy : function () {
+
+
+		$.ajax({
+			type : "post",
+			url : "/game/lotto/buy",
+
+		})
+
+	}
 
 
 };
