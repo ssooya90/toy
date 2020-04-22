@@ -74,9 +74,6 @@ var game = {
 				_cnt++;
 				_lotto.push($(this).val());
 			}
-
-
-
 		});
 
 
@@ -89,8 +86,14 @@ var game = {
 
 				alert("입력하지 않았습니다.");
 				return;
+
+			}else{
+
+				$('#selectNum').append(this.makeNum(_lotto));
+
 			}
 		}
+
 
 
 	},
@@ -98,6 +101,15 @@ var game = {
 	makeNum : function (data) {
 
 		var _str = "";
+
+
+		_str += '<div class="row">';
+		for(var i = 0 ; i < data.length ; i++){
+			_str += '<span>' + data[i] + '</span>';
+		}
+		_str += '</div>';
+
+
 
 		return _str;
 
