@@ -1,3 +1,5 @@
+var lottoNum = [];
+
 var game = {
 
 	init: function () {
@@ -57,6 +59,9 @@ var game = {
 
 	},
 
+
+
+
 	// 로또번호 선택
 	lottoSelect : function () {
 
@@ -89,6 +94,7 @@ var game = {
 
 			}else{
 
+				lottoNum.push(_lotto);
 				$('#selectNum').append(this.makeNum(_lotto));
 
 			}
@@ -114,10 +120,22 @@ var game = {
 
 	lottoBuy : function () {
 
+		console.log(lottoNum)
+
 
 		$.ajax({
 			type : "post",
 			url : "/game/lotto/buy",
+			data : JSON.stringify(lottoNum),
+			contentType : "application/json; charset=UTF-8",
+			dataType : "json"
+		}).done(function (data) {
+
+			alert("구매완료");
+
+		}).fail(function (data) {
+
+			alert("실패");
 
 		})
 

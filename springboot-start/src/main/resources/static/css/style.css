@@ -80,6 +80,9 @@ section .inner {
     .tabs a:hover {
       background-color: #f3f3f3; }
 
+.con {
+  margin-top: 50px; }
+
 .roundInfo {
   margin: 15px 0; }
 
@@ -109,12 +112,25 @@ section .inner {
     .numberSelect .numBox input[type=checkbox]:checked + label {
       background-color: #aabb55;
       color: #fff; }
-  .numberSelect .myNum list .row {
+
+.myNum {
+  margin-top: 50px; }
+  .myNum .list .row {
     padding: 10px 0; }
-    .numberSelect .myNum list .row span {
+    .myNum .list .row span {
       width: 50px;
       height: 50px;
       display: inline-block;
       margin: 3px 5px; }
+
+.menuBox .selectBtn {
+  border: 1px solid #ccc;
+  line-height: 40px;
+  text-align: center;
+  width: 100px;
+  background-color: deepskyblue;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle; }
 
 /*# sourceMappingURL=style.css.map */

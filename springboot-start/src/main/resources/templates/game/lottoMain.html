@@ -23,7 +23,7 @@
 					</div>
 
 					<div class="menuBox" style="margin-top:20px;">
-						수량선택 : <input type="number" id="amount">
+						수량선택 : <input type="number" id="amount" style="border:1px solid #ccc;" value="1">
 
 						<div style="margin-top:20px;">
 							<label>
@@ -31,7 +31,7 @@
 							</label>
 						</div>
 						<div style="margin-top:20px;">
-							<a href="javascript:game.lottoSelect()">선택</a>
+							<a href="javascript:game.lottoSelect()" class="selectBtn">선택</a>
 						</div>
 					</div>
 
@@ -46,27 +46,9 @@
 				</div>
 
 				<div style="margin-top:30px;">
-					<a href="javascrupt:lottoBuy">구매하기</a>
+					<a href="javascript:game.lottoBuy()">구매하기</a>
 				</div>
 
-<!--				<form action="/board/save" method="post">-->
-<!--					<div class="formBox formSmall">-->
-<!--						<div class="row">-->
-<!--							<div class="subject">제목</div>-->
-<!--							<input placeholder="제목" name="title" id="title" type="text" style="margin-top:5px;">-->
-<!--						</div>-->
-<!--						<div class="row">-->
-<!--							<div class="subject">내용</div>-->
-<!--							<textarea id="contents" name="contents" style="border:1px solid #ccc; width: 100%; margin-top:5px;" placeholder="내용"></textarea>-->
-<!--						</div>-->
-<!--						<div class="row">-->
-<!--							<a href="javascript:baord.save()" class="formBtn naver">작성완료</a>-->
-<!--						</div>-->
-<!--						<div class="row">-->
-<!--							<a href="javascript:history.back()" class="formBtn google">취소</a>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</form>-->
 			</div>
 		</section>
 	</div>

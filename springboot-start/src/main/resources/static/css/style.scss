@@ -136,6 +136,10 @@ section .inner {
 	}
 }
 
+.con{
+	margin-top: 50px;
+}
+
 .roundInfo{
 	margin:15px 0;
 }
@@ -181,26 +185,47 @@ section .inner {
 			color: #fff;
 
 		}
+
+
+
 	}
 
-	.myNum{
 
-		list{
+}
+
+.myNum{
+
+	margin-top: 50px;
+
+	.list{
+
+		.row{
+
+			padding:10px 0;
 
 
-			.row{
-
-				padding:10px 0;
-
-
-				span{
-					width: 50px;
-					height: 50px;
-					display:inline-block;
-					margin:3px 5px;
-				}
+			span{
+				width: 50px;
+				height: 50px;
+				display:inline-block;
+				margin:3px 5px;
 			}
 		}
+	}
+}
+
+.menuBox{
+
+	.selectBtn{
+		border:1px solid #ccc;
+		line-height: 40px;
+		text-align: center;
+		width: 100px;
+		background-color: deepskyblue;
+		color: #fff;
+		display:inline-block;
+		vertical-align: middle;
+
 	}
 }
 
