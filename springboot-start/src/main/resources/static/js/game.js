@@ -22,7 +22,6 @@ var game = {
 		var _cnt = 0;
 
 
-		console.log("1")
 
 		$.each(_parents.find('input[type=checkBox]'), function (index, item) {
 
@@ -73,12 +72,44 @@ var game = {
 
 		var _lotto = [];
 
+		// 임시값
+		var _param = {}; // 오브젝트 선언
+
+
 		$.each(_parents.find('input[type=checkBox]'), function (index, item) {
 
 			if($(this).prop("checked")){
-				_cnt++;
+
 				_lotto.push($(this).val());
+
+				switch (_cnt) {
+
+					case 0 :
+						_param.lotto1 = $(this).val();
+						break;
+					case 1 :
+						_param.lotto2 = $(this).val();
+						break;
+					case 2 :
+						_param.lotto3 = $(this).val();
+						break;
+					case 3 :
+						_param.lotto4 = $(this).val();
+						break;
+					case 4 :
+						_param.lotto5 = $(this).val();
+						break;
+					case 5 :
+						_param.lotto6 = $(this).val();
+						break;
+				}
+
+				_cnt++;
+
+				console.log(_param)
+
 			}
+
 		});
 
 
@@ -90,17 +121,17 @@ var game = {
 			if(_cnt != 6){
 
 				alert("입력하지 않았습니다.");
+				_param = {};
+
 				return;
 
 			}else{
 
-				lottoNum.push(_lotto);
 				$('#selectNum').append(this.makeNum(_lotto));
+				lottoNum.push(_param);
 
 			}
 		}
-
-
 
 	},
 
@@ -108,12 +139,14 @@ var game = {
 
 		var _str = "";
 
-
 		_str += '<div class="row">';
 		for(var i = 0 ; i < data.length ; i++){
 			_str += '<span>' + data[i] + '</span>';
 		}
 		_str += '</div>';
+
+
+
 		return _str;
 	},
 
@@ -121,23 +154,29 @@ var game = {
 	lottoBuy : function () {
 
 		console.log(lottoNum)
+		var param = {
+			lottoList : lottoNum
+		};
+
+		alert("!")
+
+		console.log(param);
+
+		console.log("!!")
 
 
 		$.ajax({
-			type : "post",
-			url : "/game/lotto/buy",
-			data : JSON.stringify(lottoNum),
-			contentType : "application/json; charset=UTF-8",
-			dataType : "json"
-		}).done(function (data) {
-
-			alert("구매완료");
-
-		}).fail(function (data) {
-
-			alert("실패");
-
-		})
+			type  : 'POST',
+			url : '/game/lotto/buy',
+			dataType : 'json',
+			contentType : 'application/json; charset=utf-8',
+			data : JSON.stringify(param),
+		}).done(function () {
+			alert('글이 등록되었습니다.');
+			window.location.href= '/';
+		}).fail(function (error) {
+			alert(JSON.stringify(error));
+		});
 
 	}
 
