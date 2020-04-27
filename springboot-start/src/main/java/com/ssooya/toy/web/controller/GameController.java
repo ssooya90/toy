@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * Created by ssooya90@naver.com on 2020-04-17
  * Github : http://github.com/ssooya90
@@ -35,9 +37,12 @@ public class GameController {
 	 * @return
 	 */
 	@PostMapping("/game/lotto/buy")
-	public String LottoBuy(@RequestBody TestDto testDto){
+	public String LottoBuy(@RequestBody List<GameLottoInsertDto> list){
 
 		System.out.println("1");
+
+
+
 		return "test";
 
 	}

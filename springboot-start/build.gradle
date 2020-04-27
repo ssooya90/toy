@@ -26,6 +26,8 @@ apply plugin : 'java' // JAVA라는 Gradle 플러그인 적용
 apply plugin : 'eclipse'
 apply plugin : 'org.springframework.boot'
 apply plugin : 'io.spring.dependency-management'
+apply plugin: 'idea'
+
 
 // 프로젝트 기본 설정
 group 'com.ssooya'

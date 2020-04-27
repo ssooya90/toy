@@ -172,16 +172,17 @@ var game = {
 			name : "이연지"
 		};
 
-		console.log(test)
+		console.log("ASDF")
 
 
-		_arry.push(test);
+
 
 
 
 
 
 		console.log(JSON.stringify(_arry))
+		console.log(JSON.stringify(lottoNum))
 
 
 		$.ajax({
@@ -189,7 +190,7 @@ var game = {
 			url : '/game/lotto/buy',
 			dataType : 'json',
 			contentType : 'application/json; charset=utf-8',
-			data : JSON.stringify(_arry),
+			data : JSON.stringify(lottoNum),
 		}).done(function () {
 			alert('글이 등록되었습니다.');
 			window.location.href= '/';
