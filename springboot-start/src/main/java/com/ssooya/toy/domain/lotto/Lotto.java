@@ -57,6 +57,18 @@ public class Lotto extends BaseTimeEntity {
 		this.lotto6 = lotto6;
 	}
 
+	@Builder
+	public Lotto(int lotto1, int lotto2, int lotto3, int lotto4, int lotto5, int lotto6){
+		this.lotto1 = lotto1;
+		this.lotto2 = lotto2;
+		this.lotto3 = lotto3;
+		this.lotto4 = lotto4;
+		this.lotto5 = lotto5;
+		this.lotto6 = lotto6;
+	}
+
+
+
 
 	/**
 	 * 당첨 유무를 해당 엔티티에 저장하는게 좋을까? 따로 테이블을 만드는게 좋읗까?

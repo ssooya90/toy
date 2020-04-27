@@ -16,9 +16,19 @@ public class GameLottoInsertDto {
 
 	private List<Lotto> lottoList;
 
-	public GameLottoInsertDto(List<Lotto> entity){
-		this.lottoList = entity;
-
+	public void setList(List<Lotto> list) {
+		this.lottoList = list;
 	}
+
+	public List<Lotto> getList() {
+		return this.lottoList;
+	}
+
+
+
+//	public GameLottoInsertDto(List<Lotto> entity){
+//		this.lottoList = entity;
+//
+//	}
 
 }

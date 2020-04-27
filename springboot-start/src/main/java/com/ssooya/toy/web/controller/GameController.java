@@ -1,6 +1,7 @@
 package com.ssooya.toy.web.controller;
 
 import com.ssooya.toy.domain.lotto.Lotto;
+import com.ssooya.toy.domain.lotto.TestDto;
 import com.ssooya.toy.web.dto.game.GameLottoInsertDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,11 +31,11 @@ public class GameController {
 
 	/**
 	 * Lotto 구매
-	 * @param gameLottoInsertDto
+//	 * @param gameLottoInsertDto
 	 * @return
 	 */
 	@PostMapping("/game/lotto/buy")
-	public String LottoBuy(@RequestBody GameLottoInsertDto gameLottoInsertDto){
+	public String LottoBuy(@RequestBody TestDto testDto){
 
 		System.out.println("1");
 		return "test";
