@@ -1,6 +1,7 @@
 package com.ssooya.toy.domain.member;
 
 		import lombok.*;
+		import org.hibernate.annotations.ColumnDefault;
 
 		import javax.persistence.*;
 
@@ -37,15 +38,17 @@ public class Member {
 	private String userAge;
 
 	@Column
+	@ColumnDefault("0") //default 0
 	private String deposit;
 
 	@Builder
-	public Member(String userId, String password, String userName, String userType, String userAge){
+	public Member(String userId, String password, String userName, String userType, String userAge, String deposit){
 		this.userId = userId;
 		this.password = password;
 		this.userName = userName;
 		this.userType = userType;
 		this.userAge = userAge;
+		this.deposit = deposit;
 	}
 
 

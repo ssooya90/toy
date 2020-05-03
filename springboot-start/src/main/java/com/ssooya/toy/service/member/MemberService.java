@@ -36,7 +36,16 @@ public class MemberService {
 	 */
 	@Transactional
 	public Long save(MemberSaveRequestDto requestDto){
-		return memberRepository.save(requestDto.toEntity()).getId();
+
+		Long asdf = null;
+		
+		try{
+			return memberRepository.save(requestDto.toEntity()).getId();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
+		return asdf;
 	}
 
 

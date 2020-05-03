@@ -168,16 +168,6 @@ var game = {
 
 		_arry.push(test);
 
-		var test = {
-			name : "이연지"
-		};
-
-		console.log("ASDF")
-
-
-
-
-
 
 
 

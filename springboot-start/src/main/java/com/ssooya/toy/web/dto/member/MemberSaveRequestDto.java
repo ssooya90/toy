@@ -19,14 +19,16 @@ public class MemberSaveRequestDto {
 	private String userName;
 	private String userType;
 	private String userAge;
+	private String deposit;
 
 	@Builder
-	public MemberSaveRequestDto(String userId, String password, String userName, String userType, String userAge){
+	public MemberSaveRequestDto(String userId, String password, String userName, String userType, String userAge, String deposit){
 		this.userId = userId;
 		this.password = password;
 		this.userName = userName;
 		this.userType = userType;
 		this.userAge = userAge;
+		this.deposit = deposit;
 	}
 
 	public Member toEntity(){
@@ -36,6 +38,7 @@ public class MemberSaveRequestDto {
 				.userName(userName)
 				.userType(userType)
 				.userAge(userAge)
+				.deposit(deposit)
 				.build();
 	}
 

@@ -3,6 +3,8 @@ package com.ssooya.toy.web.controller;
 import com.ssooya.toy.domain.lotto.Lotto;
 import com.ssooya.toy.domain.lotto.TestDto;
 import com.ssooya.toy.web.dto.game.GameLottoInsertDto;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,9 +39,8 @@ public class GameController {
 	 * @return
 	 */
 	@PostMapping("/game/lotto/buy")
-	public String LottoBuy(@RequestBody List<GameLottoInsertDto> list){
+	public String LottoBuy(@RequestBody List<GameLottoInsertDto> list, @AuthenticationPrincipal User user){
 
-		System.out.println("1");
 
 
 
