@@ -1,4 +1,6 @@
 <?
 
 	phpInfo();
+
+	echo "ASDF"
 ?>

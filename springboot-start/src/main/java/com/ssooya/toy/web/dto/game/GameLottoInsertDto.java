@@ -17,6 +17,9 @@ import java.util.List;
 @Getter
 public class GameLottoInsertDto {
 
+
+
+	private String userId;
 	private int lotto1;
 	private int lotto2;
 	private int lotto3;
@@ -26,7 +29,8 @@ public class GameLottoInsertDto {
 
 
 	@Builder
-	public GameLottoInsertDto(int lotto1, int lotto2, int lotto3, int lotto4, int lotto5, int lotto6){
+	public GameLottoInsertDto(String userId, int lotto1, int lotto2, int lotto3, int lotto4, int lotto5, int lotto6){
+		this.userId = userId;
 		this.lotto1 = lotto1;
 		this.lotto2 = lotto2;
 		this.lotto3 = lotto3;
