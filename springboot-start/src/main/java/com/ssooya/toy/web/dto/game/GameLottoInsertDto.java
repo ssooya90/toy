@@ -18,7 +18,6 @@ import java.util.List;
 public class GameLottoInsertDto {
 
 
-
 	private String userId;
 	private int lotto1;
 	private int lotto2;
@@ -38,6 +37,7 @@ public class GameLottoInsertDto {
 		this.lotto5 = lotto5;
 		this.lotto6 = lotto6;
 	}
+
 
 
 }

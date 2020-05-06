@@ -36,6 +36,10 @@ public class GameService {
 
 		Optional<Member> member = memberRepository.findByUserId(user.getUsername());
 
+		for(int i = 0 ; i < list.size() ; i++){
+
+		}
+
 
 	}
 }
