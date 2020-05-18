@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: local
+
+--- #로컬
+
+spring:
+  profiles: local
+  include : real_db
+
+  #타임리프 설정
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8080
+--- #실서버
+
+spring:
+  profiles: live
+
+  #타임리프 설정
+  thymeleaf:
+    cache: false
+
+server:
+  port: 9090
