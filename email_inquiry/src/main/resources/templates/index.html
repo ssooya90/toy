@@ -7,11 +7,43 @@
 <body>
 <h1>메일 발송</h1>
 
-<form th:action="@{/mail}" method="post">
-	<input name="address" placeholder="이메일 주소"> <br>
-	<input name="title" placeholder="제목"> <br>
-	<textarea name="message" placeholder="메일 내용을 입력해주세요." cols="60" rows="20"></textarea>
-	<button>발송</button>
-</form>
+<div>
+	<input name="address" placeholder="이메일 주소" value="ssooya90@naver.com"> <br>
+	<input name="title" placeholder="제목" value="메일제목 테스트"><br>
+	<textarea name="message" placeholder="메일 내용을 입력해주세요." cols="60" rows="20">메일 테스트</textarea>
+	<button type="button" onclick="mailSend()">발송</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+	function mailSend() {
+
+		var _title = $('input[name=title]');
+		var _address = $('input[name=address]');
+		var _message = $('textarea[name=message]');
+
+		console.log("asdf")
+
+
+		$.ajax({
+			url : "/mailSend",
+			type : "POST",
+			data : {
+				title : _title.val()
+				, address : _address.val()
+				, message : _message.val()
+			},
+		}).done(function (data) {
+
+			if(data == "S") alert("성공");
+
+		}).fail(function () {
+			alert("실패")
+		})
+
+
+	}
+</script>
 </body>
 </html>
