@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+	<h1>Jquery Foreach</h1>
+	<div class="wrap">
+
+
+		<div class="box">
+			<div class="depth depth1">
+				<div class="depthTxt">뎁스A</div>
+				<div class="depth depth2">
+					<div class="depthTxt">뎁스2-1</div>
+					<div class="depth depth3">
+						<div class="depthTxt">뎁스3-1-1</div>
+					</div>
+					<div class="depth depth3">
+						<div class="depthTxt" onclick="box1(this)">뎁스3-1-2</div>
+					</div>
+					<div class="depth depth3">
+						<div class="depthTxt">뎁스3-1-3</div>
+					</div>
+				</div>
+				<div class="depth depth2">
+					<div class="depthTxt">뎁스2-2</div>
+					<div class="depth depth3">
+						<div class="depthTxt">뎁스3-2-1</div>
+					</div>
+					<div class="depth depth3">
+						<div class="depthTxt">뎁스3-2-2</div>
+					</div>
+					<div class="depth depth3">
+						<div class="depthTxt">뎁스3-2-2</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="depth depth1">
+				<div class="depthTxt">뎁스B</div>
+				<div class="depth depth2">
+					<div class="depthTxt">뎁스2</div>
+					<div class="depth depth3">
+						<div class="depthTxt">뎁스3</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="wrap">
+		<div class="menu">
+			<div class="menuBox">
+				<span class="menuTxt">뎁스3-2-2를 클릭하여 뎁스A와 뎁스B에 클래스 ON을 추가해보자</span>
+				<a href="#none" onclick="">정답</a>
+
+
+			</div>
+
+			<a href="#none">두 번째</a>
+			<a href="#none">세 번째</a>
+			<a href="#none">네 번째</a>
+		</div>
+
+	</div>
+</div>
+
+
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script>
+
+
+
+
+	var wrap = $('wrap');
+
+
+	// 기준이 되는건 클릭 대상
+
+	function box1(e) {
+
+		console.log(e)
+
+		console.log($(e))
+
+		// $(e).parents('.depth1').addClass('on')
+
+		e.parents('.depth1').addClass('on')
+	}
+
+	function box2() {
+
+	}
+
+	function box3() {
+
+	}
+
+	function box4() {
+
+	}
+
+
+	var _box = $('.boxWrap');
+
+
+	console.log(_box);
+	console.log("parent");
+	console.log(_box.parent().parent().parent().parent());
+	console.log(_box.parent('.box').eq(0));
+	_box.parent('.wrap').addClass("asdF")
+	console.log("parents");
+	console.log(_box.parents());
+
+
+	console.log(_box.parents('body'));
+
+
+</script>
+</body>
+</html>

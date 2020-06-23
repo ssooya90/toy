@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+	<h1>Jquery Wrapping</h1>
+	<div class="wrap">
+
+		<div class="box">
+			<div class="depth depth1">
+				<div class="depthTxt">뎁스B</div>
+				<div class="depth depth2">
+					<div class="depthTxt">뎁스2</div>
+					<div class="depth depth3" id="depthA">
+						<div class="depthTxt">뎁스3</div>
+						<input id="input" value="인풋" style="width:100%;">
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+	<div class="wrap">
+		<div class="menu">
+			<div class="menuBox">
+				<span class="menuTxt">자바스크립트 셀렉트 (일반태그)</span>
+				<a href="#none" onclick="q1()">보기</a>
+			</div>
+
+			<div class="menuBox">
+				<span class="menuTxt">제이쿼리 맵핑 (일반태그)</span>
+				<a href="#none" onclick="q2()">보기</a>
+			</div>
+
+			<div class="menuBox">
+				<span class="menuTxt">자바스크립트 셀렉트 (input)</span>
+				<a href="#none" onclick="q3()">보기</a>
+			</div>
+
+			<div class="menuBox">
+				<span class="menuTxt">제이쿼리 맵핑 (input)</span>
+				<a href="#none" onclick="q4()">보기</a>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<script>
+
+		var wrap = $('wrap');
+
+
+		// 기준이 되는건 클릭 대상
+
+		function q1() {
+
+			var _javascript = document.getElementById("depthA");
+
+			console.log("자바스크립트 ==============================")
+			console.log(_javascript)
+			console.log("=========================================")
+
+			// _javascript.classList.add("on");
+			// console.log(_javascript.classList)
+		}
+
+		function q2() {
+
+			var _jquery = $('#depthA')
+
+			console.log("제이쿼리 =================================")
+			console.log(_jquery)
+			console.log("=========================================")
+		}
+
+		function q3() {
+
+			var _javascript = document.getElementById("input");
+
+			console.log("자바스크립트 ==============================")
+			console.log(_javascript)
+			console.log("=========================================")
+
+		}
+
+		function q4() {
+
+			var _jquery = $('#input')
+
+			console.log("제이쿼리 =================================")
+			console.log(_jquery)
+			console.log("=========================================")
+		}
+
+
+	</script>
+</body>
+</html>
