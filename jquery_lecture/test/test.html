@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+	<h1>Jquery Selector Test</h1>
+	<div class="wrap">
+
+
+		<div class="box">
+			<div class="depth depth1" onclick="info(this)">
+				<div class="depthTxt">뎁스A</div>
+				<div class="depth depth2" onclick="info(this)">
+					<div class="depthTxt">뎁스2-1</div>
+					<div class="depth depth3">
+						<div class="depthTxt">뎁스3-1-1</div>
+					</div>
+					<div class="depth depth3" onclick="info(this)">
+						<div class="depthTxt">뎁스3-1-2</div>
+					</div>
+					<div class="depth depth3" onclick="info(this)">
+						<div class="depthTxt">뎁스3-1-3</div>
+					</div>
+				</div>
+				<div class="depth depth2" onclick="info(this)">
+					<div class="depthTxt">뎁스2-2</div>
+					<div class="depth depth3" onclick="info(this)">
+						<div class="depthTxt">뎁스3-2-1</div>
+					</div>
+					<div class="depth depth3 point" onclick="info(this)" id="point">
+						<div class="depthTxt">뎁스3-2-2<br/> </div>
+					</div>
+					<div class="depth depth3" onclick="info(this)">
+						<div class="depthTxt">뎁스3-2-2</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="depth depth1" onclick="info(this)">
+				<div class="depthTxt">뎁스B</div>
+				<div class="depth depth2" onclick="info(this)">
+					<div class="depthTxt">뎁스2</div>
+					<div class="depth depth3" onclick="info(this)">
+						<div class="depthTxt">뎁스3</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="wrap">
+		<div class="menu">
+			<div class="menuBox">
+				<span class="menuTxt" >Q1. 기준점의 형제 중 마지막 형제에 class "on"을 추가</span>
+			</div>
+			<div class="menuBox">
+				<span class="menuTxt" >Q2. 기준점에서 시작하여 뎁스B 영역 삭제</span>
+			</div>
+			<div class="menuBox">
+				<span class="menuTxt" >Q3. 기준점에서 뎁스3-1-3의 명칭을 뎁스A-B-C로 수정</span>
+			</div>
+			<div class="menuBox">
+				<span class="menuTxt" >Q4. 뎁스A를 기준점으로 하여 뎁스3-2-1 과 뎁스 3-2-2 영역에 class "on"을 추가</span>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script>
+
+
+
+
+</script>
+</body>
+</html>

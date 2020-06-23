@@ -7,122 +7,86 @@
 </head>
 <body>
 
-<div class="container">
+	<div class="container">
 
-	<h1>Jquery Foreach</h1>
-	<div class="wrap">
+		<h1>Dynamic Control</h1>
+		<div class="wrap">
 
 
-		<div class="box">
-			<div class="depth depth1">
-				<div class="depthTxt">뎁스A</div>
-				<div class="depth depth2">
-					<div class="depthTxt">뎁스2-1</div>
-					<div class="depth depth3">
-						<div class="depthTxt">뎁스3-1-1</div>
-					</div>
-					<div class="depth depth3">
-						<div class="depthTxt" onclick="box1(this)">뎁스3-1-2</div>
-					</div>
-					<div class="depth depth3">
-						<div class="depthTxt">뎁스3-1-3</div>
+			<div class="box">
+				<div class="boxWrap">
+					<span class="subject">내용</span>
+					<div class="sbox">
+						<a href="#none" class="set">ㅇㅇㅇ</a>
+						<ul class="list">
+							<li><a href="#none">값1</a></li>
+							<li><a href="#none">값2</a></li>
+						</ul>
 					</div>
 				</div>
-				<div class="depth depth2">
-					<div class="depthTxt">뎁스2-2</div>
-					<div class="depth depth3">
-						<div class="depthTxt">뎁스3-2-1</div>
-					</div>
-					<div class="depth depth3">
-						<div class="depthTxt">뎁스3-2-2</div>
-					</div>
-					<div class="depth depth3">
-						<div class="depthTxt">뎁스3-2-2</div>
-					</div>
-				</div>
+				<a href="#none" class="btn">박스 추가</a>
 			</div>
-		</div>
 
-		<div class="box">
-			<div class="depth depth1">
-				<div class="depthTxt">뎁스B</div>
-				<div class="depth depth2">
-					<div class="depthTxt">뎁스2</div>
-					<div class="depth depth3">
-						<div class="depthTxt">뎁스3</div>
-					</div>
-				</div>
-			</div>
 		</div>
 
 	</div>
 
-	<div class="wrap">
-		<div class="menu">
-			<div class="menuBox">
-				<span class="menuTxt">뎁스3-2-2를 클릭하여 뎁스A와 뎁스B에 클래스 ON을 추가해보자</span>
-				<a href="#none" onclick="">정답</a>
 
 
-			</div>
-
-			<a href="#none">두 번째</a>
-			<a href="#none">세 번째</a>
-			<a href="#none">네 번째</a>
-		</div>
-
-	</div>
-</div>
 
 
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script>
+	$('.sbox .set').on('click',function () {
+		$(this).siblings('.list').stop().slideToggle();
+	});
 
+	$('.box .btn').on('click',function () {
 
+		var _str = "";
 
+		_str += '<div class="box">';
+		_str += '	<div class="boxWrap">';
+		_str += '		<span class="subject">내용</span>';
+		_str += '		<div class="sbox">';
+		_str += '			<a href="#none" class="set">ㅇㅇㅇ</a>';
+		_str += '			<ul class="list">';
+		_str += '				<li><a href="#none">값1</a></li>';
+		_str += '				<li><a href="#none">값2</a></li>';
+		_str += '			</ul>';
+		_str += '		</div>';
+		_str += '	</div>';
+		_str += '	<a href="#none" class="btn" onclick="add(this)">박스 추가</a>';
+		_str += '</div>';
 
-	var wrap = $('wrap');
+		$('.wrap').append(_str);
 
+	});
 
-	// 기준이 되는건 클릭 대상
-
-	function box1(e) {
+	function add(e) {
 
 		console.log(e)
 
-		console.log($(e))
+		var _str = "";
 
-		// $(e).parents('.depth1').addClass('on')
+		_str += '<div class="box">';
+		_str += '	<div class="boxWrap">';
+		_str += '		<span class="subject">내용</span>';
+		_str += '		<div class="sbox">';
+		_str += '			<a href="#none" class="set">ㅇㅇㅇ</a>';
+		_str += '			<ul class="list">';
+		_str += '				<li><a href="#none">값1</a></li>';
+		_str += '				<li><a href="#none">값2</a></li>';
+		_str += '			</ul>';
+		_str += '		</div>';
+		_str += '	</div>';
+		_str += '	<a href="#none" class="btn" onclick="add(this)">박스 추가</a>';
+		_str += '</div>';
 
-		e.parents('.depth1').addClass('on')
+		$(e).parents('.wrap').append(_str);
+
 	}
 
-	function box2() {
-
-	}
-
-	function box3() {
-
-	}
-
-	function box4() {
-
-	}
-
-
-	var _box = $('.boxWrap');
-
-
-	console.log(_box);
-	console.log("parent");
-	console.log(_box.parent().parent().parent().parent());
-	console.log(_box.parent('.box').eq(0));
-	_box.parent('.wrap').addClass("asdF")
-	console.log("parents");
-	console.log(_box.parents());
-
-
-	console.log(_box.parents('body'));
 
 
 </script>
