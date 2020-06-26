@@ -12,7 +12,6 @@
 		<h1>Dynamic Control</h1>
 		<div class="wrap">
 
-
 			<div class="box">
 				<div class="boxWrap">
 					<span class="subject">내용</span>
@@ -24,7 +23,7 @@
 						</ul>
 					</div>
 				</div>
-				<a href="#none" class="btn">박스 추가</a>
+				<a href="#none" class="btn" onclick="add(this)">박스 추가</a>
 			</div>
 
 		</div>
@@ -37,9 +36,33 @@
 
 <script src="../js/jquery-3.1.1.min.js"></script>
 <script>
+
 	$('.sbox .set').on('click',function () {
 		$(this).siblings('.list').stop().slideToggle();
 	});
+
+	$(document).on('click','.box .btn',function () {
+
+		var _str = "";
+
+		_str += '<div class="box">';
+		_str += '	<div class="boxWrap">';
+		_str += '		<span class="subject">내용</span>';
+		_str += '		<div class="sbox">';
+		_str += '			<a href="#none" class="set">ㅇㅇㅇ</a>';
+		_str += '			<ul class="list">';
+		_str += '				<li><a href="#none">값1</a></li>';
+		_str += '				<li><a href="#none">값2</a></li>';
+		_str += '			</ul>';
+		_str += '		</div>';
+		_str += '	</div>';
+		_str += '	<a href="javascript:add()" class="btn">박스 추가</a>';
+		_str += '</div>';
+
+		$('.wrap').append(_str);
+
+	});
+
 
 	$('.box .btn').on('click',function () {
 
@@ -56,7 +79,7 @@
 		_str += '			</ul>';
 		_str += '		</div>';
 		_str += '	</div>';
-		_str += '	<a href="#none" class="btn" onclick="add(this)">박스 추가</a>';
+		_str += '	<a href="javascript:add()" class="btn">박스 추가</a>';
 		_str += '</div>';
 
 		$('.wrap').append(_str);
@@ -65,7 +88,6 @@
 
 	function add(e) {
 
-		console.log(e)
 
 		var _str = "";
 
