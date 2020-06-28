@@ -3,13 +3,13 @@ var lottoNum = [];
 var game = {
 
 	init: function () {
+
 		var _this = this;
 
 		this.lottoMake();
 
 
 		$('#writeMoveBtn').on('click', function () {
-
 			_this.write_move();
 		});
 
