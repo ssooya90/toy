@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 	<head>
-		<title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">SPRING_STUDY</title>
-		<!-- 공통 css, js, meta tag -->
-		<th:block th:replace="fragments/header"></th:block>
+		<meta charset="UTF-8" />
+		<title>ㅁㄴㅇㄹ</title>
+		<!-- config fragment 사용 -->
+		<th:block th:replace="fragments/config :: configFragment" ></th:block>
+
 	</head>
 	<body>
+		<th:block th:replace="fragments/header"></th:block>
 		<h1>기본 레이아웃</h1>
 		<!-- page content body 구성 -->
 		<th:block layout:fragment="content"></th:block>
@@ -14,6 +18,5 @@
 		<!-- 공통 javascript -->
 <!--		<th:block th:replace="fragments/commonScript"></th:block>-->
 		<!-- page content javascript -->
-		<th:block layout:fragment="pageCustomScript"></th:block>
 	</body>
 </html>
