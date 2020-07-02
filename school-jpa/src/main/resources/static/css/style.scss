@@ -1,5 +1,17 @@
-
-
 *{
-	background-color: blue;
+	padding:0;
+	margin:0;
+}
+
+.container{
+	max-width:720px;
+	margin:0 auto;
+
+	header{
+		text-align: center;
+	}
+
+	.menuGroup{
+		text-align: center;
+	}
 }

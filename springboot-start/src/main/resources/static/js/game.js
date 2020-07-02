@@ -174,6 +174,7 @@ var game = {
 		console.log(JSON.stringify(_arry))
 		console.log(JSON.stringify(lottoNum))
 
+		var url = '/game/lotto/buy';
 
 		$.ajax({
 			type  : 'POST',
