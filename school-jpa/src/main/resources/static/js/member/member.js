@@ -8,6 +8,9 @@ var member = {
 
 	join : function () {
 
+		alert("조인")
+
+
 	}
 }
 
