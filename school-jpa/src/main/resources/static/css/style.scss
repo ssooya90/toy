@@ -6,6 +6,8 @@
 .container{
 	max-width:720px;
 	margin:0 auto;
+	text-align: center;
+
 
 	header{
 		text-align: center;
@@ -13,5 +15,21 @@
 
 	.menuGroup{
 		text-align: center;
+		//width: 320px;
+		display:inline-block;
+
+		.row{
+			text-align: left;
+
+			+ .row{
+				margin-top: 15px;
+			}
+
+			.menu{
+				text-align: center;
+			}
+			.subject{
+			}
+		}
 	}
 }

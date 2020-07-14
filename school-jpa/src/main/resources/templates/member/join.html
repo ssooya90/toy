@@ -11,19 +11,39 @@
 
 	<div class="menuGroup">
 		<div class="row">
+			<div class="subject">아이디</div>
 			<input type="text" name="id" value="id">
 		</div>
 		<div class="row">
+			<div class="subject">이름</div>
+			<input type="text" name="nm" value="nm">
+		</div>
+		<div class="row">
+			<div class="subject">학년</div>
+			<select name="grade">
+				<option value="1">1학년</option>
+				<option value="2">2학년</option>
+				<option value="3">3학년</option>
+				<option value="4">4학년</option>
+				<option value="5">5학년</option>
+				<option value="6">6학년</option>
+			</select>
+		</div>
+		<div class="row">
+			<div class="subject">비밀번호</div>
 			<input type="password" name="pw" value="pw">
 		</div>
 		<div class="row">
+			<div class="subject">비밀번호 확인</div>
 			<input type="password" name="pw" value="pwChk">
 		</div>
 		<div class="row">
-			<a href="/" class="">취소</a>
+			<div class="menu">
+				<a href="/" class="">취소</a>
+				<a href="javascript:member.join()" class="">회원가입</a>
+			</div>
 		</div>
 		<div class="row">
-			<a href="javascript:member.join()" class="">회원가입</a>
 		</div>
 	</div>
 

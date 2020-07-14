@@ -10,6 +10,30 @@ var member = {
 
 		alert("조인")
 
+		var _params = {
+
+			id : $('input[name=id]').val(),
+			nm : $('input[name=id]').val(),
+			pw : $('input[name=id]').val(),
+			grade : $('select[name=grade]').val(),
+
+			$.ajax({
+				type : "post"
+				, url : '/member/joinProc'
+				, data : JSON.stringify(_params)
+				, dataType : 'json'
+				, contentType : 'application/json; charset=utf-8'
+			}).done(function () {
+				alert("회원가입 완료되었습니다.")
+				window.location.href("/")
+
+			}).fail(function (error) {
+				alert(JSON.stringify(error))
+
+			})
+
+		}
+
 
 	}
 }
