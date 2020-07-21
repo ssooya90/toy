@@ -1,0 +1,30 @@
+
+// buildscript는 gradle로 task를 수행할 때 사용하는 설정으로 소스 컴파일과는 무관함
+// bulidscript밖에서 정의된 dependency는 소스를 컴파일할 때 사용
+buildscript {
+    // 변수설정
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+
+    // task 시 라이브러리를 가지고올 repo
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath("orgh.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+apply plugin : 'java' // JAVA라는 Gradle 플러그인 적용
+apply plugin : 'eclipse'
+apply plugin : 'org.springframework.boot'
+apply plugin : 'io.spring.dependency-management'
+apply plugin: 'idea'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version = '1.2.1'
