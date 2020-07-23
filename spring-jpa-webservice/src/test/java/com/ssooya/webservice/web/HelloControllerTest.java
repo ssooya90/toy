@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class) // 스프링부트 테스트와 JUnit 사이에 연결자 역할
-@WebMvcTest(controllers = {HelloController.class}, secure = false) //  Web에 집중할 수 있는 어노테이션, 선언 시 @Controller 사용가능, 그외 사용불가
+@WebMvcTest(controllers = HelloController.class) //  Web에 집중할 수 있는 어노테이션, 선언 시 @Controller 사용가능, 그외 사용불가
 public class HelloControllerTest {
 
 	@Autowired
