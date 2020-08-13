@@ -1,3 +1,7 @@
+### cumstom file ###
+application-oauth.properties
+
+
 # Created by .ignore support plugin (hsz.mobi)
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -169,5 +173,10 @@ out
 gen
 
 
-### cumstom file ###
-application-oauth.properties
+.gradle/
+build/classes/java/main/generated/
+build/classes/java/test/generated_tests/
+build/reports/
+build/resources/
+build/test-results/
+src/test/resources/
