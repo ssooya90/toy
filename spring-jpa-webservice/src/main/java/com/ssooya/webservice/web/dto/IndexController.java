@@ -1,8 +1,8 @@
 package com.ssooya.webservice.web.dto;
 
+import com.ssooya.webservice.config.auth.LoginUser;
 import com.ssooya.webservice.config.auth.dto.SessionUser;
 import com.ssooya.webservice.service.PostsService;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +19,10 @@ public class IndexController {
 	private final HttpSession httpSession;
 
 	@GetMapping("/")
-	public String index(Model model) {
+	public String index(Model model, @LoginUser SessionUser user) {
 
 		model.addAttribute("posts",postsService.findAllDesc());
-		SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
 		if(user != null){ model.addAttribute("userName",user.getName()); }
 
 		return "index";
