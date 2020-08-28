@@ -9,4 +9,12 @@ org.springframework.boot:spring-boot-starter-web:2.1.7.RELEASE
 
 
 
+## database
+테이블에 한글이 안들어가질 경우
+
+~~~
+ALTER TABLE `test`
+	COLLATE='utf8mb4_general_ci',
+	CONVERT TO CHARSET utf8mb4;
+~~~
 
