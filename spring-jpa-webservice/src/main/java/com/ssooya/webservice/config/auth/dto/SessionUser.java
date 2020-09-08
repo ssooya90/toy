@@ -15,7 +15,7 @@ public class SessionUser {
 	public SessionUser(User user){
 		this.name = user.getName();
 		this.email = user.getEmail();
-		this.picture = getPicture();
+		this.picture = user.getPicture();
 	}
 
 }

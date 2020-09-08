@@ -14,8 +14,6 @@ public class MemberController {
 
 	private final MemberService memberService;
 
-
-
 	@PostMapping("/member/joinProc")
 	public Long joinProc(@RequestBody MemberSaveRequestDto requestDto){
 		return memberService.joinProc(requestDto);
