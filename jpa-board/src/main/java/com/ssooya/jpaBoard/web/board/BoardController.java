@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequiredArgsConstructor
 @Controller
@@ -20,6 +21,7 @@ public class BoardController {
 	}
 
 	@PostMapping("/post")
+	@ResponseBody
 	public String write(@RequestBody BoardSaveRequestDto requestDto) {
 
 		try{
@@ -29,6 +31,6 @@ public class BoardController {
 		}
 
 
-		return "redirect:/";
+		return "<div>성공</div>";
 	}
 }

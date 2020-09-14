@@ -6,6 +6,7 @@ var boardWrite = {
 
 		var _this = this;
 		console.log(_this)
+		console.log("!@")
 
 	},
 
@@ -21,11 +22,15 @@ var boardWrite = {
 			type: "post"
 			, url: '/post'
 			, data: JSON.stringify(_params)
-			, dataType: 'json'
+			, dataType: 'text'
 			, contentType: 'application/json; charset=utf-8'
-		}).done(function () {
+		}).done(function (data) {
+
+			console.log(data)
 			alert("작성완료 완료되었습니다.")
-			window.location.href("/")
+
+			$('form').append(data);
+			// window.location.href("/")
 
 		}).fail(function (error) {
 			alert(JSON.stringify(error))
