@@ -33,6 +33,8 @@ public class BoardService {
 
 		List list = boardRepository.findAllDesc();
 
+		// board entity를 list로 받아서 BoardListResponseDto로 변환하여 전달한다.
+
 		return boardRepository.findAllDesc().stream().map(BoardListResponseDto::new).collect(Collectors.toList());
 
 
