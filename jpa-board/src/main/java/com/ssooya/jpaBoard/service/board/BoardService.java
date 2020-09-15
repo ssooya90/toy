@@ -3,6 +3,7 @@ package com.ssooya.jpaBoard.service.board;
 import com.ssooya.jpaBoard.domain.board.Board;
 import com.ssooya.jpaBoard.domain.board.BoardRepository;
 import com.ssooya.jpaBoard.web.board.dto.BoardListResponseDto;
+import com.ssooya.jpaBoard.web.board.dto.BoardResponseDto;
 import com.ssooya.jpaBoard.web.board.dto.BoardSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -37,6 +38,14 @@ public class BoardService {
 
 		return boardRepository.findAllDesc().stream().map(BoardListResponseDto::new).collect(Collectors.toList());
 
+	}
+
+	@Transactional(readOnly = true)
+	public BoardResponseDto findById(Long id) {
+
+		Board entity = boardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다."));
+
+		return new BoardResponseDto(entity);
 
 	}
 }
