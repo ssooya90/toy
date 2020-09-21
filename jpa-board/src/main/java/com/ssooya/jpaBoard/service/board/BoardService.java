@@ -38,12 +38,9 @@ public class BoardService {
 		List list = boardRepository.findAllDesc();
 
 		// board entity를 list로 받아서 BoardListResponseDto로 변환하여 전달한다.
-
 		return boardRepository.findAllDesc().stream().map(BoardListResponseDto::new).collect(Collectors.toList());
 
 	}
-
-
 
 
 	@Transactional(readOnly = true)
@@ -56,9 +53,8 @@ public class BoardService {
 	}
 
 	@Transactional(readOnly = true)
-	public Page findBooksByPageRequest(Pageable pageable) {
-
-		return boardRepository.findAll(pageable);
-
+	public List findBooksByPageRequest(Pageable pageable) {
+		Page<Board> page = boardRepository.findAll(pageable);
+		return page.stream().map(BoardResponseDto::new).collect(Collectors.toList());
 	}
 }
