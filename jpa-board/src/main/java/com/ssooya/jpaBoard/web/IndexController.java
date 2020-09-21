@@ -1,10 +1,10 @@
 package com.ssooya.jpaBoard.web;
 
 
-import com.ssooya.jpaBoard.domain.board.BoardRepository;
 import com.ssooya.jpaBoard.service.board.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +17,10 @@ public class IndexController {
 
 
 	@GetMapping("/")
-	public String main(Model model){
+	public String main(Model model, final Pageable pageable){
 
 		try{
-			model.addAttribute("boardList",boardService.findAllDesc());
+			model.addAttribute("boardList",boardService.findBooksByPageRequest(pageable));
 		}catch (Exception e){
 			e.printStackTrace();
 		}
