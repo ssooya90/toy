@@ -16,5 +16,42 @@
 	<input type="submit" value="수정">
 </form>
 
+
+<div class="comment">
+
+	<div>코멘트 작성</div>
+
+	<div>
+		<input type="text" name="commentWriter">
+	</div>
+	<div>
+		<textarea name="commentContent"></textarea>
+	</div>
+	<div>
+		<a href="javascript:boardUpdate.commentSave()">작성</a>
+	</div>
+</div>
+
+<div class="commentList">
+
+	<div th:if="${commentList == null}">등록된 코멘트가 없습니다.</div>
+
+
+	<ul>
+		<li th:each="comment : ${commentList}">
+			<div th:text="${comment.writer}"></div>
+			<div th:text="${comment.content}"></div>
+		</li>
+	</ul>
+
+
+</div>
+
+
+<div th:insert="common/footer.html" id="footer"></div>
+<th:block layout:fragment="script">
+	<script th:src="@{/js/board/boardUpdate.js}"></script>
+</th:block>
+
 </body>
 </html>
