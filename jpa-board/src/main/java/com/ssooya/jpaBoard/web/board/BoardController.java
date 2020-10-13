@@ -4,6 +4,7 @@ import com.ssooya.jpaBoard.domain.board.Board;
 import com.ssooya.jpaBoard.service.board.BoardService;
 import com.ssooya.jpaBoard.web.board.dto.BoardResponseDto;
 import com.ssooya.jpaBoard.web.board.dto.BoardSaveRequestDto;
+import com.ssooya.jpaBoard.web.board.dto.BoardUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +40,13 @@ public class BoardController {
 
 		model.addAttribute("boardDto", boardService.findById(id));
 		return "board/update.html";
+	}
+
+	@PutMapping("/post/edit/{no}")
+	public String update(BoardUpdateRequestDto boardUpdateRequestDto){
+		boardService.update(boardUpdateRequestDto);
+		return "redirect:/";
+
 	}
 
 

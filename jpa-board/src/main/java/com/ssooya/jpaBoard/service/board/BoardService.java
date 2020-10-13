@@ -5,6 +5,7 @@ import com.ssooya.jpaBoard.domain.board.BoardRepository;
 import com.ssooya.jpaBoard.web.board.dto.BoardListResponseDto;
 import com.ssooya.jpaBoard.web.board.dto.BoardResponseDto;
 import com.ssooya.jpaBoard.web.board.dto.BoardSaveRequestDto;
+import com.ssooya.jpaBoard.web.board.dto.BoardUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,5 +57,10 @@ public class BoardService {
 	public List findBooksByPageRequest(Pageable pageable) {
 		Page<Board> page = boardRepository.findAll(pageable);
 		return page.stream().map(BoardResponseDto::new).collect(Collectors.toList());
+	}
+
+	@Transactional
+	public Long update(BoardUpdateRequestDto boardUpdateRequestDto) {
+		return boardRepository.save(boardUpdateRequestDto.toEntity()).getId();
 	}
 }

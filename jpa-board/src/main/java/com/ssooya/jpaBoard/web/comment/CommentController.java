@@ -8,10 +8,7 @@ import com.ssooya.jpaBoard.web.board.dto.BoardResponseDto;
 import com.ssooya.jpaBoard.web.comment.dto.CommentSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @Controller
@@ -21,12 +18,20 @@ public class CommentController {
 	private final BoardService boardService;
 
 
-	@RequestMapping("/comment/save")
+	@PostMapping("/comment/save")
 	@ResponseBody
-	public String commentSave(@PathVariable("boardId") Long boardId){
+	public String commentSave(@RequestBody CommentSaveRequestDto requestDto, @PathVariable("boardId") Long boardId){
 
-//		Long id = commentService.save(requestDto);
-//		BoardResponseDto board = boardService.findById(boardId);
+		try{
+			Long id = commentService.save(requestDto);
+			BoardResponseDto board = boardService.findById(boardId);
+
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
+
+
 
 
 		return "<div>성공</div>";
