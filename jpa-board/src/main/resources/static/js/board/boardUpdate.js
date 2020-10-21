@@ -51,8 +51,6 @@ var boardUpdate = {
 		}
 
 
-
-
 		console.log(JSON.stringify(_params))
 
 		$.ajax({

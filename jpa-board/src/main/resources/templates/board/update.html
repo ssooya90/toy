@@ -3,49 +3,61 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<link rel="stylesheet" th:href="@{/css/board.css}">
 </head>
 <body>
-<form th:action="@{'/post/edit/' + ${boardDto.id}}" method="post">
-	<input type="hidden" name="_method" value="put"/>
-	<input type="hidden" name="id" th:value="${boardDto.id}"/>
+<div th:insert="common/header.html" id="header"></div>
 
-	제목 : <input type="text" name="title" th:value="${boardDto.title}"> <br>
-	작성자 : <input type="text" name="writer" th:value="${boardDto.writer}"> <br>
-	<textarea name="content" th:text="${boardDto.content}"></textarea><br>
+<div class="boardWrap">
+	<form th:action="@{'/post/edit/' + ${boardDto.id}}" method="post">
+		<input type="hidden" name="_method" value="put"/>
+		<input type="hidden" name="id" th:value="${boardDto.id}"/>
 
-	<input type="submit" value="수정">
-</form>
+		제목 : <input type="text" name="title" th:value="${boardDto.title}"> <br>
+		작성자 : <input type="text" name="writer" th:value="${boardDto.writer}"> <br>
+		내용 : <textarea name="content" th:text="${boardDto.content}"></textarea><br>
+
+		<input type="submit" value="수정">
+	</form>
 
 
-<div class="comment">
+	<div class="comment" style="margin-top:30px;">
 
-	<div>코멘트 작성</div>
+		<div><b>코멘트 작성</b></div>
 
-	<div>
-		<input type="text" name="commentWriter">
+		<div>
+		작성자 :
+			<div>
+				<input type="text" name="commentWriter">
+			</div>
+		</div>
+		<div>
+		내용 :
+			<div>
+				<textarea name="commentContent"></textarea>
+			</div>
+		</div>
+		<div>
+			<a href="javascript:boardUpdate.commentSave()">작성</a>
+		</div>
 	</div>
-	<div>
-		<textarea name="commentContent"></textarea>
-	</div>
-	<div>
-		<a href="javascript:boardUpdate.commentSave()">작성</a>
+
+	<div class="commentList">
+
+		<div th:if="${commentList == null}">등록된 코멘트가 없습니다.</div>
+
+
+		<ul>
+			<li th:each="comment : ${commentList}">
+				<div th:text="${comment.writer}"></div>
+				<div th:text="${comment.content}"></div>
+			</li>
+		</ul>
+
+
 	</div>
 </div>
 
-<div class="commentList">
-
-	<div th:if="${commentList == null}">등록된 코멘트가 없습니다.</div>
-
-
-	<ul>
-		<li th:each="comment : ${commentList}">
-			<div th:text="${comment.writer}"></div>
-			<div th:text="${comment.content}"></div>
-		</li>
-	</ul>
-
-
-</div>
 
 
 <div th:insert="common/footer.html" id="footer"></div>

@@ -20,11 +20,11 @@ public class CommentController {
 
 	@PostMapping("/comment/save")
 	@ResponseBody
-	public String commentSave(@RequestBody CommentSaveRequestDto requestDto, @PathVariable("boardId") Long boardId){
+	public String commentSave(@RequestBody CommentSaveRequestDto requestDto){
 
 		try{
 			Long id = commentService.save(requestDto);
-			BoardResponseDto board = boardService.findById(boardId);
+//			BoardResponseDto board = boardService.findById(boardId);
 
 		}catch (Exception e){
 			e.printStackTrace();
