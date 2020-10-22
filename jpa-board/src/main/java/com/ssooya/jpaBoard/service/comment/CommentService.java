@@ -26,10 +26,8 @@ public class CommentService {
 
 		Board board = boardRepository.findById(Long.valueOf(requestDto.getBoardId())).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다."));
 
-
-
 		requestDto = CommentSaveRequestDto.builder()
-
+				.board(board)
 				.writer(requestDto.getWriter())
 				.content(requestDto.getContent())
 				.build();

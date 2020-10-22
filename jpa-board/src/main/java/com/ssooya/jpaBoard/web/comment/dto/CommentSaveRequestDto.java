@@ -16,10 +16,11 @@ public class CommentSaveRequestDto {
 	private String content;
 
 	@Builder
-	public CommentSaveRequestDto(String boardId, String writer, String content){
+	public CommentSaveRequestDto(String boardId, String writer, String content, Board board){
 		this.boardId = boardId;
 		this.writer = writer;
 		this.content = content;
+		this.board = board;
 	}
 
 	public Comment toEntity(){
