@@ -17,7 +17,9 @@ public class CommentListResponseDto {
 		this.id = entity.getId();
 		this.writer = entity.getWriter();
 		this.content = entity.getContent();
-//		this.modifiedDate = entity();
+//		this.modifiedDate = entity();3
+
+
 	}
 
 

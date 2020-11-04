@@ -2,6 +2,7 @@ package com.ssooya.jpaBoard.web.board;
 
 import com.ssooya.jpaBoard.domain.board.Board;
 import com.ssooya.jpaBoard.service.board.BoardService;
+import com.ssooya.jpaBoard.service.comment.CommentService;
 import com.ssooya.jpaBoard.web.board.dto.BoardResponseDto;
 import com.ssooya.jpaBoard.web.board.dto.BoardSaveRequestDto;
 import com.ssooya.jpaBoard.web.board.dto.BoardUpdateRequestDto;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class BoardController {
 
 	private final BoardService boardService;
+	private final CommentService commentService;
 
 	@GetMapping("/post")
 	public String write(){
@@ -38,7 +40,12 @@ public class BoardController {
 	@GetMapping("/post/{id}")
 	public String detail(@PathVariable("id") Long id, Model model) {
 
-		model.addAttribute("boardDto", boardService.findById(id));
+		BoardResponseDto boardResponseDto = boardService.findById(id);
+
+		model.addAttribute("boardDto", boardResponseDto);
+		model.addAttribute("commentDto",commentService.findByBoard_Id(id));
+
+
 		return "board/update.html";
 	}
 
