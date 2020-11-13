@@ -43,7 +43,7 @@ public class BoardController {
 		BoardResponseDto boardResponseDto = boardService.findById(id);
 
 		model.addAttribute("boardDto", boardResponseDto);
-		model.addAttribute("commentDto",commentService.findByBoard_Id(id));
+		model.addAttribute("commentList",commentService.findByBoard_Id(id));
 
 
 		return "board/update.html";

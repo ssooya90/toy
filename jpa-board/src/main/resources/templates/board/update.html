@@ -49,7 +49,7 @@
 
 		<ul>
 			<li th:each="comment : ${commentList}">
-				<div th:text="${comment.writer}"></div>
+				<div><span style="font-weight: 700;" th:text="${comment.writer}"></span></div>
 				<div th:text="${comment.content}"></div>
 			</li>
 		</ul>
