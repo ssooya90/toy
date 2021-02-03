@@ -24,12 +24,10 @@ public class StreamMap1 {
 						(existingValue, newValue) -> existingValue)    // 중복키가 발생할 경우 처리 방법
 				);
 
-
 		List<String> names = Arrays.asList("java 8", "teSt");
 		List<?> namesStream = names.stream()
 				.map(name -> name.toUpperCase())
 				.collect(Collectors.toList());
-
 
 		System.out.println(names);
 

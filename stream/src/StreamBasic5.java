@@ -1,29 +1,22 @@
-
-
-
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static java.util.stream.Collectors.toList;
+import java.util.stream.Stream;
 
 /*
-	타입형 스트림
+	부분 배열
  */
 
 
 public class StreamBasic5 {
 
+
 	public static void main(String[] args) {
 
 
-		Map map = new HashMap();
+		String[] arr = new String[]{"A", "B"};
+		List<String> arr2 = Arrays.asList("G", "F");
 
-		map.put("a1", 1);
-		map.put("a2", 2);
-		map.put("c1", 3);
-		map.put("c2", 4);
+		Stream.concat(Arrays.stream(arr), arr2.stream()).forEach(System.out::println);
 
 
 	}
