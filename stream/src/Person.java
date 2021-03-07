@@ -11,6 +11,11 @@ public class Person {
 
 	private String name;
 	private Integer age;
+	static int [] SiteCount;
+
+
+
+
 
 	public Person(String name, Integer age) {
 		this.name = name;
@@ -18,6 +23,13 @@ public class Person {
 	}
 
 	public static void main(String[] args) {
+
+
+		SiteCount = new int[2];
+
+		for(int i=0; i< 2; i++) {
+			SiteCount[i] = 1;
+		}
 
 
 		List<Person> personList = Arrays.asList(

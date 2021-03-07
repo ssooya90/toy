@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 public class StreamMap1 {
 
 	public static void main(String[] args) {
-
 		AtomicInteger index = new AtomicInteger(0);
 		List<Integer> car = Arrays.asList(1, 2, 3);
 		Map<Integer, String> map = car.stream()
