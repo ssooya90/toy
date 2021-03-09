@@ -1,13 +1,25 @@
-function Shape (x,y){
-	this.name = 'Shape';
-	this.move(x,y);
+class Shape {
+
+	static create(x,y) { return new Shape(x,y);}
+
+	name = 'Shape';
+	constructor(x,y) {
+
+		this.move(x,y);
+	}
+
+	move(x,y){
+		this.x = x;
+		this.y = y;
+	}
+
+	area(){
+		return 0;
+	}
 }
 
-Shape.create = function (x,y){
-	return new Shape(x,y);
-}
+var s = new Shape(0,1);
+s.area();
 
-Shape.prototype.move = function (x,y){
-	this.x = x;
-	this.y = y;
-}
+console.log(s.area())
+
