@@ -1,4 +1,4 @@
-import './materialize.scss'
+// import './materialize.scss'
 import './App.css';
 
 function App() {
