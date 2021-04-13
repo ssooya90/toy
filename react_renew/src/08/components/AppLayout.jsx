@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, css, withStylesPropTypes } from '../../doit-ui/withStyles';
 import AppNav, { HEIGHT } from './AppNav';
-import CoinOverview from './main/CoinOverview';
+import MainPage from './main/MainPage';
 
 class AppLayout extends PureComponent {
   render() {
@@ -10,7 +10,7 @@ class AppLayout extends PureComponent {
     return (
       <div {...css(styles.wrapper)}>
         <AppNav />
-          <CoinOverview/>
+          <MainPage/>
       </div>
     );
   }
