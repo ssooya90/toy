@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {Provider} from 'react-redux';
 
 
+import ModalProvider from './ModalProvider';
 import AppLayout from './components/AppLayout';
 import CoinOverview from './components/main/CoinOverview';
 import TransactionList from './components/main/TransactionList';
@@ -16,10 +17,12 @@ class CoinApp extends PureComponent {
     return (
 
       <Provider store={this.store}>
-        <AppLayout>
-          <CoinOverview/>
-          <TransactionList/>
-        </AppLayout>
+        <ModalProvider>
+          <AppLayout>
+            <CoinOverview/>
+            <TransactionList/>
+          </AppLayout>
+        </ModalProvider>
       </Provider>
 
     );
