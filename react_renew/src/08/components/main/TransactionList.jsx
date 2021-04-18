@@ -4,22 +4,16 @@ import Heading from '../../../doit-ui/Heading';
 import Card from '../../../doit-ui/Card';
 
 // 8장 참조 코드
-import TransactionSearchFilter from './TransactionSearchFilter';
+import TransactionSearchFilterContainer from '../../containers/main/TransactionSearchFilterContainer';
 import TransactionTable from './TransactionTable';
 
-// import TransactionSearchFilterContainer from '../../containers/main/TransactionSearchFilterContainer';
 // import TransactionPaginationContainer from '../../containers/main/TransactionPaginationContainer';
 
 class TransactionList extends PureComponent {
-  state = {
-    transactions: [
-
-    ],
-  }
 
   componentDidMount() {
-    Api.get('http://localhost:4000/transactions', { params: { code: 'BTX' } })
-      .then(response => this.setState({ transactions: response.data }));
+    Api.get('/transactions')
+      .then(({ data }) => this.props.setTransactionList(data));
     /*
     9-2 참조 코드
 
@@ -36,13 +30,13 @@ class TransactionList extends PureComponent {
   }
 
   render() {
-    const { transactions } = this.state;
+    const { transactions } = this.props;
     // const { transactions, loading } = this.props;
     return (
       <div>
         <Heading level={3}>거래 현황</Heading>
         <Card vertical={4} horizontal={4}>
-          <TransactionSearchFilter />
+          <TransactionSearchFilterContainer />
         </Card>
         <Card>
           <TransactionTable transactions={transactions} />
@@ -52,9 +46,9 @@ class TransactionList extends PureComponent {
   }
 }
 //
-// TransactionList.defaultProps = {
-//   transactions: [],
-//   requestTransactionList: () => {},
-// };
+TransactionList.defaultProps = {
+  transactions: [],
+  requestTransactionList: () => {},
+};
 
 export default TransactionList;

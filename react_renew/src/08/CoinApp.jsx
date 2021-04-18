@@ -20,8 +20,6 @@ class CoinApp extends PureComponent {
           <CoinOverview/>
           <TransactionList/>
         </AppLayout>
-
-
       </Provider>
 
     );
