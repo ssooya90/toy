@@ -1,4 +1,4 @@
-// import Api from '../Api';
+import Api from '../Api';
 // import { showMessage } from './notificationActions';
 
 // export const LOADING_TRANSACTION_LIST = 'transaction/LOADING_TRANSACTION_LIST';
@@ -26,6 +26,15 @@ export function setTransactionList(transactions) {
   };
 }
 //
+
+
+export function requestTransactionList(params){
+  return (dispatch) =>
+    Api.get('/transactions',{params}).then(
+      ({data}) => dispatch(setTransactionList(data))
+    );
+}
+
 // export function requestTransactionList(params) {
 //   return dispatch => {
 //     dispatch(loading());

@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import reducers from '../reducers';
 import { SET_TRANSACTION_LIST } from '../actions/transactionActions';
+import thunk from 'redux-thunk';
 
 
 
@@ -45,9 +46,6 @@ export default initStates => createStore(
   combineReducers(reducers),
   initStates,
   composeWithDevTools(
-    applyMiddleware(
-      customMiddleware,
-      customMiddleware2,
-    ),
+    applyMiddleware(thunk)
   ),
 )
