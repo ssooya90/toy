@@ -19,6 +19,9 @@ class TransactionSearchFilter extends PureComponent {
   handleSubmit(params) {
 
     const{requestTransactionList} = this.props;
+    const cleanedParams = Object.entires(params)
+      .filter(([key, value]) => value !== '')
+      .reduce((obj, [key, value]) => ({ ...obj, [key]:value}));
     requestTransactionList(params)
 
   }
