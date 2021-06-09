@@ -5,44 +5,41 @@ import java.util.HashMap;
 public class HashTest2 {
 
 
+
+
 	public static void main(String[] args) {
 
-		String[] phone_book = {"123" ,"119", "97674223", "1195524421"};
+		String[] phone_book = {"123" ,"456", "789" , "1234"};
 
 		solution(phone_book);
 
 	}
 
 
-	public static String solution(String[] phone_book) {
+	public static boolean solution(String[] phone_book) {
 
-		String answer = "";
+		boolean answer = true;
 		HashMap<String, Integer> map = new HashMap<>();
 
+		for(int i = 0 ; phone_book.length > i ; i++){
 
-		int i = 0;
-		for(String phone : phone_book){
-			map.put(phone, i++);
+			String _this = phone_book[i];
+
+			for(int j = i+1 ; phone_book.length > j ; j++){
+
+				if(phone_book[j].startsWith(_this)){
+					answer = false;
+					break;
+				}
+
+				if(answer == false){
+					break;
+				}
+
 //
-//			System.out.println(phone.startsWith(phone));
+			}
 
 		}
-
-		for(String value : map.keySet()){
-			value.startsWith("");
-		}
-
-
-
-		System.out.println(map);
-
-
-		System.out.println(map.containsValue(12));
-
-		// 접두사 확인을 어떻게 해야하지..?
-
-
-
 
 		return answer;
 	}
