@@ -2,17 +2,15 @@ package hash;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class HashTest1 {
 
 
 	public static void main(String[] args) {
 
-		String[] participant={"mislav", "stanko", "mislav", "ana"};
-		String[] competition={"stanko", "ana", "mislav"};
-
-
-		String test = "!";
+		String[] participant = {"mislav", "stanko", "mislav", "ana"};
+		String[] competition = {"stanko", "ana", "mislav"};
 
 		solution(participant, competition);
 
@@ -22,38 +20,31 @@ public class HashTest1 {
 	public static String solution(String[] participant, String[] completion) {
 
 		String answer = "";
-		ArrayList<String> completionList  = new ArrayList<>(Arrays.asList(completion));
-		ArrayList<String> participantList  = new ArrayList<>(Arrays.asList(participant));
-		ArrayList<String> resultList  = new ArrayList<>(Arrays.asList(participant));
+		HashMap<String, Integer> map = new HashMap<>();
 
 
+		for (String name : participant) {
 
-		System.out.println(participantList);
+			map.put(name, map.getOrDefault(name, 0) + 1);
 
-
-
-
-		for(String name : participantList){
-
-			System.out.println(completionList.indexOf(name));
-			System.out.println(name);
-
-			resultList.remove(completionList.indexOf(name));
-			System.out.println(resultList);
-
-//			participantList.remove(1);
-
-//			System.out.println(completionList.indexOf(name));
-//			System.out.println(name);
-//
-//			if(completionList.lastIndexOf(name) == -1){
-//				answer = name;
-//			}
-
+			System.out.println(map);
 		}
 
-		System.out.println(resultList);
-		System.out.println(answer);
+		for (String name : completion) {
+
+			map.put(name, map.getOrDefault(name, 0) - 1);
+
+			System.out.println(map);
+		}
+
+		for (String key : map.keySet()) {
+
+			if (map.get(key) != 0) {
+				answer = key;
+			}
+		}
+
+
 		return answer;
 	}
 
