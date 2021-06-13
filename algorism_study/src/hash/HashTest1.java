@@ -1,7 +1,5 @@
 package hash;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class HashTest1 {
@@ -11,7 +9,6 @@ public class HashTest1 {
 
 		String[] participant = {"mislav", "stanko", "mislav", "ana"};
 		String[] competition = {"stanko", "ana", "mislav"};
-
 		solution(participant, competition);
 
 	}
@@ -45,6 +42,7 @@ public class HashTest1 {
 		}
 
 
+		System.out.println(answer);
 		return answer;
 	}
 

@@ -20,7 +20,6 @@ public class HashTest3 {
 
 		int answer = 0;
 		HashMap<String, Integer> map = new HashMap<>();
-
 		System.out.println(phone_book);
 
 		for(String name[] : phone_book){

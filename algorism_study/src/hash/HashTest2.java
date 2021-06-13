@@ -19,7 +19,6 @@ public class HashTest2 {
 	public static boolean solution(String[] phone_book) {
 
 		boolean answer = true;
-		HashMap<String, Integer> map = new HashMap<>();
 
 		for(int i = 0 ; phone_book.length > i ; i++){
 
