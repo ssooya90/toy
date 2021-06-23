@@ -55,13 +55,31 @@ public class 모의고사 {
 		int max = manMaxScore[manMaxScore.length-1];
 		System.out.println(max);
 
+
+		/***
+		 * // 동점자 인원을 구해야 함
+		 */
+
 //		manScore[0];
 		for(int i = 0 ; score.length > i ; i++){
 
+			System.out.println(score[i]);
+
+			System.out.println("맥스" + max);
+
 			if(score[i] == max){
+
+
+
+				System.out.println("HERE");
 				answer[i] = i+1;
 			}
 
+		}
+
+
+		for(int num : answer){
+			System.out.println(num);
 		}
 
 		return answer;
