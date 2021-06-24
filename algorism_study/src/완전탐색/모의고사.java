@@ -2,12 +2,13 @@ package 완전탐색;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class 모의고사 {
 
 	public static void main(String[] args) {
 
-		int[] array = {1, 2, 3, 4, 5}; // 1번 문제부터 마지막 문제까지의 정답이 순서대로 들은 배열
+		int[] array = {2,1,2,3,2,1,2,3,4,5,2,3,4,1,2,3,1,2,3,1,2,3}; // 1번 문제부터 마지막 문제까지의 정답이 순서대로 들은 배열
 		solution(array);
 
 	}
@@ -15,19 +16,16 @@ public class 모의고사 {
 
 	public static int[] solution(int[] answers) {
 
-		ArrayList<Integer> list = new ArrayList<Integer>();
-
 		int[] man1 = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
 		int[] man2 = {2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5};
 		int[] man3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5,};
 
 		int[] score = {0,0,0};
+		int[] manMaxScore = new int[score.length];
 
-		int manMaxScore[] = new int[3];
-		int[] answer = new int[3];
-
-
-		System.out.println("!");
+		
+		// man의 시험 결과만큼 array가 돌아야함
+		
 		for(int i = 0 ; answers.length > i ; i++){
 
 			if(answers[i] == man1[i]){
@@ -50,33 +48,43 @@ public class 모의고사 {
 
 		// 최대값
 //		(manMaxScore);
-		Arrays.sort(manMaxScore);
 
+		// 내리참순을 통해 가장 높은 값이 무엇인지 정렬
+		Arrays.sort(manMaxScore);
 		int max = manMaxScore[manMaxScore.length-1];
-		System.out.println(max);
+
+		int sameNum = 0;
 
 
 		/***
 		 * // 동점자 인원을 구해야 함
 		 */
 
-//		manScore[0];
 		for(int i = 0 ; score.length > i ; i++){
 
-			System.out.println(score[i]);
-
-			System.out.println("맥스" + max);
+			System.out.println("스코어" + score[i]);
 
 			if(score[i] == max){
-
-
-
-				System.out.println("HERE");
-				answer[i] = i+1;
+				sameNum ++;
 			}
 
 		}
 
+		int[] answer = new int[sameNum];
+
+		System.out.println("동점값 " +  sameNum);
+		System.out.println("스코어 랭쓰" + score.length);
+
+		int same = 0;
+
+		for(int i = 0 ; score.length > i ; i++){
+
+			System.out.println("스코어 값" + score[i]);
+
+			if(score[i] == max){
+				answer[same++] = i+1;
+			}
+		}
 
 		for(int num : answer){
 			System.out.println(num);
