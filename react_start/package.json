@@ -38,7 +38,7 @@
     "@storybook/addon-actions": "5.2.6",
     "@storybook/addons": "5.2.6",
     "@storybook/react": "5.2.6",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^11.0.1",
     "storybook-addon-jsx": "7.1.13"
   }
